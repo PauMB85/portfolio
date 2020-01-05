@@ -2,12 +2,20 @@
 
 Home, .Home {
 
+    background-color: black;
+    height: 100%;
+    .flex-column {
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
     .canvas {
         position: absolute;
         top: 0;
         left: 0;
         width: 100vw;
-        height: 100%;
+        height: 100vh;
         background: url(./../../encabezado-estrella.svg) center center/cover;
     }
 

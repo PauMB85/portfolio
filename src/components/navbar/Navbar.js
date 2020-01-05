@@ -16,6 +16,9 @@ function Navbar(props) {
         setSticky(navbar.offsetTop);
     },[])
     
+    /**
+     * Crear componente
+     */
     useEffect(() => {
         if(sticky > 0){
             window.addEventListener("scroll", handleScroll);
