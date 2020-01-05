@@ -40,7 +40,7 @@ function AboutMe(props) {
     }
 
     return (
-        <div className="AboutMe">
+        <div className="AboutMe" id="">
             <h1>About me</h1>
             <div className="flex-column-reverse">
                 <div className="img-element">

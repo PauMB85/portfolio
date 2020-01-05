@@ -5,6 +5,7 @@ AboutMe, .AboutMe {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 70px;
 
     @media screen and (min-width: 600px){
         .flex-column-reverse{

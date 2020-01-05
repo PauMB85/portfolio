@@ -10,6 +10,7 @@ import './style/commons.scss';
 import Navbar from './components/navbar/Navbar';
 import Home from './components/home/Home';
 import AboutMe from './components/about/AboutMe';
+import Skills from './components/skills/Skills';
 
 function App() {
 
@@ -28,10 +29,7 @@ function App() {
           </section>
           {/* skills */}
           <section id="skills">
-            <h1>Skills</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque pariatur reprehenderit autem</p>
-            <p>similique numquam placeat labore, possimus enim consequuntur, officia eos accusamus dolorem quod cum</p> 
-            <p>atque dolore facere vitae deleniti.</p>
+            <Skills />
           </section>
           {/* contact */}
           <section id="contact">
