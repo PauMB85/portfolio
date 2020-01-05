@@ -1,0 +1,32 @@
+Contact, .Contact {
+
+    
+    width: 90%;
+    @media screen and (min-width: 600px){
+        width: 60%;
+    }
+
+    .flex-row {
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+        width: 100%;
+    }
+
+    .flex-end{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-box-pack: end;
+            -ms-flex-pack: end;
+                justify-content: flex-end;
+    }
+
+    .input-contact{
+        padding: 10px;
+        width: 100%;
+    }
+}

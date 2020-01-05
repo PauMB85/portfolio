@@ -1,0 +1,40 @@
+@import './../../style/properties';
+
+Home, .Home {
+
+    .canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100%;
+        background: url(./../../encabezado-estrella.svg) center center/cover;
+    }
+
+    .text, .text-little {
+        margin: 0 0 20px 0;
+        font-size: 15pt;
+        line-height: 20pt;
+        z-index: 1;
+        pointer-events: none;
+        color: #fff;
+        @media screen and (min-width: 600px){
+            font-size: 32pt;
+            line-height: 36pt;
+        }
+    }
+
+    .text-little {
+        font-size: 8pt;
+        @media screen and (min-width: 600px){
+            font-size: 15pt;
+            line-height: 36pt;
+        }
+    }
+
+    .hightlight {
+        color: $color-secondary;
+    }
+    
+      
+}
