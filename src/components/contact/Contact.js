@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Paper, IconButton} from '@material-ui/core';
+import { Paper } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import SendIcon from '@material-ui/icons/Send';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import { makeStyles } from '@material-ui/core/styles';
 
 import ValidationForm from './../../utils/ValidationForms';
 import ValidateInputs from './../../utils/ValidateInputs';
@@ -19,8 +19,15 @@ const infoInitial = {
     message: ''
   };
 
+  const useStyles = makeStyles({
+    root: {
+        width: '90%'
+    }
+  });
+
 function Contact(props) {
 
+    const classes = useStyles();
 
     const { handleSubmit, handleChange, handleBlur, info, errors } = ValidationForm(infoInitial,ValidateInputs);
 
@@ -28,7 +35,7 @@ function Contact(props) {
     return (
         <div className="Contact">
             <h1>Contact</h1>
-            <Paper>
+            <Paper classes={{root: classes.root}}>
                 <form onSubmit={handleSubmit}>
                     <div className="flex-column">
                         {/* fila 1 */}
@@ -126,14 +133,6 @@ function Contact(props) {
                         </div>
                     </div>
                 </form>
-            </Paper>
-
-            <Paper>
-                <div className="flex-row">
-                    <IconButton aria-label="linkedin" href="https://www.linkedin.com/in/paumaravi/" target="_blank">
-                        <LinkedInIcon style={{ color: '#2867B2' }} fontSize="large" />
-                    </IconButton>
-                </div>
             </Paper>
         </div>
     );

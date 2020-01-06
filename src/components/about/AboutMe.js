@@ -12,7 +12,6 @@ function AboutMe(props) {
 
     useEffect(() => {
         const aboutMePosition = document.getElementById('about');
-        console.log('aboutme', aboutMePosition.offsetTop);
         setAboutMe(aboutMePosition.offsetTop);
     },[]);
 
@@ -30,7 +29,6 @@ function AboutMe(props) {
     const handleScroll = () => {
         
         const positionScroll = window.pageYOffset;
-        console.log('scroll position', positionScroll);
         if(positionScroll >= aboutMe || positionScroll > aboutMe / 2.5){
             setIsAboutMe(true);
         }
@@ -56,10 +54,10 @@ function Description () {
     return (
        <div className="text-element">
             <div className="text-about animation-text-fade-in-left">
-                <p>
+                <div>
                     Hola! Soy Pau Maraví y soy un apasionado del desarrollo web.
-                </p>
-                <p>
+                </div>
+                <div>
                     En mi dia a dia trabajo como Full-stack. 
                     En el front-end utilizo:
                     <br />
@@ -70,14 +68,14 @@ function Description () {
                         <KeyboardArrowRightIcon /> ReactJS, oh yeah!  
                     </div>
                     y el Back-end que utilizo es Spring con Java 7/8.
-                </p>
-                <p>
+                </div>
+                <div>
                     En mi tiempo libre me gusta conocer nuevas tecnologías y hacer un PoC para conocerlas.
-                </p>
-                <p>
+                </div>
+                <div>
                     Cuando tengo que crear un nuevo proyecto, siempre me gusta utilizar AWS (lambda, dynamoDB, API Gateway, ...) para back-end
                     y para el front me gusta utilizar AngularJS(tachado) Angular o React.
-                </p>   
+                </div>   
             </div>
         </div> 
     );
