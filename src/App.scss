@@ -7,7 +7,21 @@
 section {
     color: #616161;
     line-height: 18pt;
+}
+
+section:nth-of-type(1) {
+    height: 100vh;
+}
+
+section:nth-of-type(n+1) {
+
     min-height: 100vh;
+    margin: 0 3%;
+
+    @media screen and (min-width: 600px) {
+        max-width: 1200px;
+        margin: 0 12.5%;
+    }
 }
 
 
