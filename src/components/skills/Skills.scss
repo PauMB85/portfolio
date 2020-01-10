@@ -4,6 +4,11 @@ Skills, .Skills {
     flex-direction: column;
     align-items: center;
     margin-top:70px;
+
+    .logos {
+        height: 100px;
+        width: 100px;
+    }
     
     .collect-skills {
         width: 100%;

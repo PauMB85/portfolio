@@ -4,7 +4,6 @@ import { Paper } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import SendIcon from '@material-ui/icons/Send';
-import { makeStyles } from '@material-ui/core/styles';
 
 import ValidationForm from './../../utils/ValidationForms';
 import ValidateInputs from './../../utils/ValidateInputs';
@@ -22,9 +21,7 @@ const infoInitial = {
 
 function Contact(props) {
 
-
     const { handleSubmit, handleChange, handleBlur, info, errors } = ValidationForm(infoInitial,ValidateInputs);
-
 
     return (
         <div className="Contact">
