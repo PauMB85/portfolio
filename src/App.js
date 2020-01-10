@@ -35,6 +35,7 @@ function App() {
           <section id="contact">
             <Contact />
           </section>
+          
         </div>
       
     </ThemeProvider>

@@ -38,7 +38,7 @@ function AboutMe(props) {
     }
 
     return (
-        <div className="AboutMe" id="">
+        <div className="AboutMe">
             <h1>About me</h1>
             <div className="flex-column-reverse">
                 <div className="img-element">

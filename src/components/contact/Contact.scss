@@ -1,9 +1,13 @@
 Contact, .Contact {
 
-    margin-top: 70px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top:70px;
+
+    .width-papper{
+        width: 90%;
+    }
 
     .flex-row {
         -ms-flex-pack: distribute;
@@ -27,5 +31,12 @@ Contact, .Contact {
     .input-contact{
         padding: 10px;
         width: 100%;
+    }
+
+    .width-button {
+        width: 100%;
+        @media screen and (min-width: 600px) {
+            width: auto;
+        }
     }
 }

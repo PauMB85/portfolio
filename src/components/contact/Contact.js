@@ -19,15 +19,9 @@ const infoInitial = {
     message: ''
   };
 
-  const useStyles = makeStyles({
-    root: {
-        width: '90%'
-    }
-  });
 
 function Contact(props) {
 
-    const classes = useStyles();
 
     const { handleSubmit, handleChange, handleBlur, info, errors } = ValidationForm(infoInitial,ValidateInputs);
 
@@ -35,7 +29,7 @@ function Contact(props) {
     return (
         <div className="Contact">
             <h1>Contact</h1>
-            <Paper classes={{root: classes.root}}>
+            <Paper className="width-papper">
                 <form onSubmit={handleSubmit}>
                     <div className="flex-column">
                         {/* fila 1 */}
@@ -125,6 +119,7 @@ function Contact(props) {
                                         color="secondary"
                                         startIcon={<SendIcon />}
                                         type="submit"
+                                        className="width-button"
                                     >
                                         Enviar
                                     </Button>
