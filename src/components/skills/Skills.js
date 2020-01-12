@@ -2,8 +2,8 @@ import React from 'react';
 
 
 
-import { AWSLambdaLogo, AWSApiGateway, AWSDynampDB, JavascriptLogo, Html5Logo, 
-         Css3Logo, ReactLogo, AngularLogo, SpringLogo, SassLogo, NodeLogo } from '../../utils/LogosSVG';
+import { AWSLambdaLogo, AWSApiGatewayLogo, AWSDynamoDBLogo, JavascriptLogo, Html5Logo, 
+         Css3Logo, ReactLogo, AngularLogo, SpringLogo, SassLogo, NodeLogo, TravisLogo } from '../../utils/LogosSVG';
 
 import './Skills.scss';
 
@@ -29,8 +29,9 @@ function Skills(props) {
                 <h2>Tecnologías</h2>
                 <div className="logos-skills">
                     <AWSLambdaLogo classes="logos"/>
-                    <AWSApiGateway classes="logos"/>
-                    <AWSDynampDB classes="logos"/>
+                    <AWSApiGatewayLogo classes="logos"/>
+                    <AWSDynamoDBLogo classes="logos"/>
+                    <TravisLogo classes="logos"/>
                 </div>
             </div>
             

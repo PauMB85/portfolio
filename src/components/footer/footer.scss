@@ -1,3 +1,25 @@
+@import './../../style/properties';
+
 Footer, .Footer {
+
+
+    .paper {
+        background-color: $color-main;
+    }
+
+    .icons {
+        height: 36px;
+        width: 36px;
+    }
+
+    .github-icon {
+        filter: invert(100%);
+    }
+
+    .rights {
+        margin: 10px;
+        color: #ffffff;
+        pointer-events: none;
+    }
     
 }

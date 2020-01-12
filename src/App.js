@@ -11,6 +11,7 @@ import Navbar from './components/navbar/Navbar';
 import Home from './components/home/Home';
 import AboutMe from './components/about/AboutMe';
 import Skills from './components/skills/Skills';
+import Footer from './components/footer/Footer';
 
 function App() {
 
@@ -35,7 +36,8 @@ function App() {
           <section id="contact">
             <Contact />
           </section>
-          
+          {/* footer */}
+          <Footer />
         </div>
       
     </ThemeProvider>

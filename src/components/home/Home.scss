@@ -16,7 +16,7 @@ Home, .Home {
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: url(./../../encabezado-estrella.png) center center/cover;
+        background: url(./../../img/encabezado/estrella.png) center center/cover;
 
         @media screen and (min-width: $phone-size){
             background-attachment: fixed;
@@ -37,7 +37,8 @@ Home, .Home {
     }
 
     .text-little {
-        font-size: 8pt;
+        font-size: 10pt;
+        margin: 15px;
         @media screen and (min-width: $phone-size){
             font-size: 15pt;
             line-height: 36pt;

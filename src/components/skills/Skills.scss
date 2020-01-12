@@ -1,3 +1,5 @@
+@import './../../style/properties';
+
 Skills, .Skills {
     
     display: flex;
@@ -5,10 +7,21 @@ Skills, .Skills {
     align-items: center;
     margin-top:70px;
 
+    .logos-skills {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
     .logos {
         height: 100px;
         width: 100px;
-        margin: 0 10px;
+        margin: 10px 0;
+        @media screen and (min-width: $phone-size) {
+            margin: 10px;
+        }
+        
     }
     
     .collect-skills {

@@ -11,13 +11,9 @@ import { ReactComponent as NodeJS } from './../img/logos/nodejs-1.svg';
 import { ReactComponent as AwsLambda } from './../img/logos/aws-lambda.svg';
 import { ReactComponent as AwsApiGateway } from './../img/logos/aws-api-gateway.svg';
 import { ReactComponent as AwsDynamoDB } from './../img/logos/aws-dynamodb.svg';
-
-
-
-
-
-
-
+import { ReactComponent as Linkedin } from './../img/logos/linkedin-icon-2.svg';
+import { ReactComponent as Github } from './../img/logos/github-1.svg';
+import { ReactComponent as Travis } from './../img/logos/travis-ci.svg';
 
 
 export function JavascriptLogo ({classes}) {
@@ -74,15 +70,33 @@ export function AWSLambdaLogo ({classes}) {
     );
 };
 
-export function AWSApiGateway ({classes}) {
+export function AWSApiGatewayLogo ({classes}) {
     return(
         <AwsApiGateway alt="aws api gateway logo" className={classes}/>
     );
 }
 
-export function AWSDynampDB ({classes}) {
+export function AWSDynamoDBLogo ({classes}) {
     return(
         <AwsDynamoDB alt="aws dynamodb logo" className={classes}/>
+    );
+}
+
+export function LinkedinLogo ({classes}) {
+    return(
+        <Linkedin alt="linkedin logo" className={classes}/>
+    );
+}
+
+export function GithubLogo ({classes}) {
+    return(
+        <Github alt="github logo" className={classes}/>
+    );
+}
+
+export function TravisLogo ({classes}) {
+    return(
+        <Travis alt="travis logo" className={classes}/>
     );
 }
 
