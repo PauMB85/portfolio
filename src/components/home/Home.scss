@@ -16,7 +16,11 @@ Home, .Home {
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: url(./../../encabezado-estrella.svg) center center/cover;
+        background: url(./../../encabezado-estrella.png) center center/cover;
+
+        @media screen and (min-width: $phone-size){
+            background-attachment: fixed;
+        }
     }
 
     .text, .text-little {
@@ -26,7 +30,7 @@ Home, .Home {
         z-index: 1;
         pointer-events: none;
         color: #fff;
-        @media screen and (min-width: 600px){
+        @media screen and (min-width: $phone-size){
             font-size: 32pt;
             line-height: 36pt;
         }
@@ -34,7 +38,7 @@ Home, .Home {
 
     .text-little {
         font-size: 8pt;
-        @media screen and (min-width: 600px){
+        @media screen and (min-width: $phone-size){
             font-size: 15pt;
             line-height: 36pt;
         }

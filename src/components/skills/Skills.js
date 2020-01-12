@@ -1,8 +1,8 @@
 import React from 'react';
 
-import jsLogo from '../../img/logos/jslogo.png';
-import html5Logo from '../../img/logos/HTML5_logo_resized.svg';
-import css3Logo from '../../img/logos/CSS3_logo_and_wordmark.svg';
+import { AWSLambdaLogo, AWSApiGateway, AWSDynampDB, JavascriptLogo, Html5Logo, 
+         Css3Logo, ReactLogo, AngularLogo, SpringLogo, SassLogo, NodeLogo } from '../../utils/LogosSVG';
+
 import './Skills.scss';
 
 
@@ -13,10 +13,23 @@ function Skills(props) {
         <div className="Skills">
             <h1>Skills</h1>
             <div className="collect-skills">
-                <h2>Languages and frameworks</h2>
-                <img src={jsLogo} alt="javascript logo" className="logos"/>
-                <img src={html5Logo} alt="html5 logo" className="logos"/>
-                <img src={css3Logo} alt="css3 logo" className="logos"/>
+                <h2>Frameworks y lenguajes</h2>
+                <div className="logos-skills">
+                    <JavascriptLogo classes="logos"/>
+                    <Html5Logo classes="logos"/>
+                    <Css3Logo classes="logos"/>
+                    <ReactLogo classes="logos"/>
+                    <AngularLogo classes="logos"/>
+                    <SpringLogo classes="logos"/>
+                    <SassLogo classes="logos"/>
+                    <NodeLogo classes="logos"/>
+                </div>
+                <h2>Tecnologías</h2>
+                <div className="logos-skills">
+                    <AWSLambdaLogo classes="logos"/>
+                    <AWSApiGateway classes="logos"/>
+                    <AWSDynampDB classes="logos"/>
+                </div>
             </div>
             
             
