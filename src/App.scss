@@ -28,6 +28,12 @@ section:nth-of-type(4) {
     min-height: calc(100vh - 100px);
 }
 
+h1 {
+    color: $color-main;
+    font-size: 50pt;
+    text-shadow: 3px 3px 2px $color-secondary;
+}
+
 
 
 

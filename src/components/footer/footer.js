@@ -8,7 +8,7 @@ import './Footer.scss';
 function Footer(props) {
     return (
         <div className="Footer">
-            <Paper className="paper">
+            <Paper className="paper" variant="outlined" square>
                 <div className="flex-column">
                     <div className="social">
                         <IconButton aria-label="linkedin" href="https://www.linkedin.com/in/paumaravi/" target="_blank">
@@ -20,6 +20,10 @@ function Footer(props) {
                     </div>
                     <div className="rights">
                         &copy; Pau Maravi Busquets - portfolio v1.0
+                    </div>
+                    <div className="rights">
+                        En la construcción de este proyecto se han utilizado las tecnologías React, 
+                        AWS Lambda, API Gateway, S3, Route 53 y SNS
                     </div>
                 </div>
             </Paper>
