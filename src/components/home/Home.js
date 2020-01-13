@@ -1,5 +1,6 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import { Fab } from '@material-ui/core';
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 
 import './Home.scss';
 
@@ -12,7 +13,7 @@ function Home(props) {
             </div>
             <div className="flex-column">
               <div className="text">
-                Uep, I'm <span className="hightlight"> Pau Maraví</span>.
+                Hola, soy <span className="hightlight"> Pau Maraví</span>.
                 <br/>
                 I'm a software developer & project leader
                 <br />
@@ -20,9 +21,11 @@ function Home(props) {
                     I like code and build web applications. Have a project, idea or problem??
                 </div>
               </div>
-              <Button variant="contained" size="medium" color="secondary" href="/#about">
-                Work
-              </Button>
+              <div className="up-down">
+                <Fab color="secondary" aria-label="down" href="/#about">
+                  <ArrowDownwardIcon />
+                </Fab>
+              </div>
             </div>
         </div>
     );

@@ -48,6 +48,19 @@ Home, .Home {
     .hightlight {
         color: $color-secondary;
     }
+
+    .up-down {
+        animation: up-down 1.5s infinite  alternate;
+    }
+
+    @keyframes up-down {
+        from{
+            transform: translateY(-10px);
+        }
+        to {
+            transform: translateY(10px);
+        }
+    }
     
       
 }
