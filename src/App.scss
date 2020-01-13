@@ -25,7 +25,10 @@ section:nth-of-type(n+1) {
 }
 
 section:nth-of-type(4) {
-    min-height: calc(100vh - 100px);
+    min-height: calc(100vh - 180px);
+    @media screen and (min-width: $phone-size) {
+        min-height: calc(100vh - 140px);
+    }
 }
 
 h1 {
