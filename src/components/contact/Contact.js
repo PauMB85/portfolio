@@ -21,11 +21,12 @@ const infoInitial = {
 
 function Contact(props) {
 
-    const { handleSubmit, handleChange, handleBlur, info, errors } = ValidationForm(infoInitial,ValidateInputs);
+    const { handleSubmit, handleChange, handleBlur, info, errors, isSubmitting } = ValidationForm(infoInitial,ValidateInputs);
 
     return (
         <div className="Contact">
             <h1>Contacto</h1>
+            {isSubmitting? <h2> Gracias por contactar</h2> : null}
             <Paper className="papper">
                 <form onSubmit={handleSubmit}>
                     <div className="flex-column">

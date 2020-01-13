@@ -38,8 +38,9 @@ function ValidationForms(infoInitial, validate) {
         event.preventDefault();
         //const validationErrors = validate(info);
         //setErrors(validationErrors);
-        //setSubmitting(true);
         console.log('datos', info);
+        setSubmitting(true);
+        setInfo(infoInitial);
     };
 
     function checkInput(event){
