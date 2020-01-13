@@ -36,7 +36,7 @@ function AboutMe(props) {
 
     return (
         <div className="AboutMe">
-            <h1 className="scroll-up-text">About me</h1>
+            <h1 className="scroll-up-text">Sobre mi</h1>
             <div className="flex-column-reverse">
                 { isAboutMe ? <Description /> : null }
             </div>

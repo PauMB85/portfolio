@@ -25,7 +25,7 @@ function Contact(props) {
 
     return (
         <div className="Contact">
-            <h1>Contact</h1>
+            <h1>Contacto</h1>
             <Paper className="papper">
                 <form onSubmit={handleSubmit}>
                     <div className="flex-column">

@@ -15,10 +15,11 @@ function Home(props) {
               <div className="text">
                 Hola, soy <span className="hightlight"> Pau Maraví</span>.
                 <br/>
-                I'm a software developer & project leader
+                Desarrollador y líder de equipo.
                 <br />
                 <div className="text-little">
-                    I like code and build web applications. Have a project, idea or problem??
+                  Me encanta diseñar y construir aplicaciones web! 
+                  <br/>Tines una idea, proyecto o algún problema??
                 </div>
               </div>
               <div className="up-down">
