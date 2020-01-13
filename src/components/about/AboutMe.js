@@ -38,10 +38,10 @@ function AboutMe(props) {
         <div className="AboutMe">
             <h1>About me</h1>
             <div className="flex-column-reverse">
-                <div className="img-element">
+                {/*<div className="img-element">
                     <img alt="me" src={me} className="img-me"/> 
-                </div>
-                { isAboutMe ? <Description /> : null}
+                </div>*/}
+                { isAboutMe ? <Description /> : null }
             </div>
         </div>
     );
@@ -49,36 +49,42 @@ function AboutMe(props) {
 
 function Description () {
     return (
-       <div className="text-element">
-            <div className="text-about animation-text-fade-in-left">
-                <div>
-                    Hola! Soy Pau Maraví y un apasionado de la tecnología y del desarrollo web.
-                </div>
-                <br />
-                <div>
-                    En mi dia a dia trabajo como Full-stack. 
-                    En el front-end utilizo:
-                    <br />
-                    <div className="flex-row-start">
-                        <KeyboardArrowRightIcon /> AngularJS, si... AngularJS
-                    </div>
-                    <div className="flex-row-start">
-                        <KeyboardArrowRightIcon /> ReactJS, oh yeah!  
-                    </div>
-                    y el Back-end que utilizo es Spring con Java 7/8.
-                </div>
-                <br />
-                <div>
-                    En mi tiempo libre me gusta conocer nuevas tecnologías y hacer un PoC para conocerlas.
-                </div>
-                <br />
-                <div>
-                    Cuando tengo que crear un nuevo proyecto, siempre me gusta utilizar AWS (lambda, dynamoDB, API Gateway, ...) para back-end
-                    y para el front me gusta utilizar Angular o React.
-                    Además, me gusta utilizar herramientas DevOps para poder llevar a cabo un control de los desarrollos mediente Travis en Github.
-                </div>   
+        <React.Fragment>
+            <div className="img-element">
+                <img alt="me" src={me} className="img-me"/> 
             </div>
-        </div> 
+            <div className="text-element">
+                <div className="text-about animation-text-fade-in-left">
+                    <div>
+                        Hola! Soy Pau Maraví y un apasionado de la tecnología y del desarrollo web.
+                    </div>
+                    <br />
+                    <div>
+                        En mi dia a dia trabajo como Full-stack. 
+                        En el front-end utilizo:
+                        <br />
+                        <div className="flex-row-start">
+                            <KeyboardArrowRightIcon /> AngularJS, si... AngularJS
+                        </div>
+                        <div className="flex-row-start">
+                            <KeyboardArrowRightIcon /> ReactJS, oh yeah!  
+                        </div>
+                        y el Back-end que utilizo es Spring con Java 7/8.
+                    </div>
+                    <br />
+                    <div>
+                        En mi tiempo libre me gusta conocer nuevas tecnologías y hacer un PoC para conocerlas.
+                    </div>
+                    <br />
+                    <div>
+                        Cuando tengo que crear un nuevo proyecto, siempre me gusta utilizar AWS (lambda, dynamoDB, API Gateway, ...) para back-end
+                        y para el front me gusta utilizar Angular o React.
+                        Además, me gusta utilizar herramientas DevOps para poder llevar a cabo un control de los desarrollos mediente Travis en Github.
+                    </div>   
+                </div>
+            </div> 
+        </React.Fragment>
+        
     );
 }
 

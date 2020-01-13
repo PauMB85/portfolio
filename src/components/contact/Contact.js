@@ -26,7 +26,7 @@ function Contact(props) {
     return (
         <div className="Contact">
             <h1>Contact</h1>
-            <Paper className="width-papper">
+            <Paper className="papper">
                 <form onSubmit={handleSubmit}>
                     <div className="flex-column">
                         {/* fila 1 */}

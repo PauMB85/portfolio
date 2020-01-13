@@ -12,6 +12,9 @@ Skills, .Skills {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-around;
+        @media screen and (min-width: $phone-size) {
+            margin: 50px 30px;
+        }
     }
 
     .logos {
