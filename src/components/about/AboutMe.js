@@ -51,7 +51,7 @@ function Description () {
                 <img alt="me" src={me} className="img-me"/> 
             </div>
             <div className="text-element">
-                <div className="text-about animation-text-fade-in-left">
+                <div className="text-about">
                     <div>
                         Hola! Soy Pau Maraví y un apasionado de la tecnología y del desarrollo web.
                     </div>
