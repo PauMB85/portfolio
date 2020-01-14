@@ -18,9 +18,11 @@ Home, .Home {
         height: 100vh;
         background: url(./../../img/encabezado/estrella.png) center center/cover;
 
-        @media screen and (min-width: $phone-size){
+        @media screen and (min-width: 1024),
+        not screen and (min-width: 1024) and (orientation: landscape){
             background-attachment: fixed;
-        }
+        }        
+
     }
 
     .text, .text-little {
