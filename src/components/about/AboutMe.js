@@ -37,7 +37,7 @@ function AboutMe(props) {
     return (
         <div className="AboutMe">
             <h1 className="scroll-up-text">Sobre mi</h1>
-            <div className="flex-column-reverse">
+            <div className="about-elements">
                 { isAboutMe ? <Description /> : null }
             </div>
         </div>
@@ -47,10 +47,10 @@ function AboutMe(props) {
 function Description () {
     return (
         <React.Fragment>
-            <div className="img-element">
+            <div className="img-element about-1">
                 <img alt="me" src={me} className="img-me"/> 
             </div>
-            <div className="text-element">
+            <div className="text-element about-2">
                 <div className="text-about">
                     <div>
                         Hola! Soy Pau Maraví y un apasionado de la tecnología y del desarrollo web.
@@ -72,14 +72,17 @@ function Description () {
                     <div>
                         En mi tiempo libre me gusta conocer nuevas tecnologías y hacer un PoC para conocerlas.
                     </div>
-                    <br />
+                </div>
+            </div>
+            <div className="text-element about-3">
+                <div className="text-about">
                     <div>
                         Cuando tengo que crear un nuevo proyecto, siempre me gusta utilizar AWS (lambda, dynamoDB, API Gateway, ...) para back-end
                         y para el front me gusta utilizar Angular o React.
                         Además, me gusta utilizar herramientas DevOps para poder llevar a cabo un control de los desarrollos mediente Travis en Github.
-                    </div>   
+                    </div>
                 </div>
-            </div> 
+            </div>
         </React.Fragment>
         
     );

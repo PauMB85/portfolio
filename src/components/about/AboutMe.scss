@@ -16,7 +16,7 @@ AboutMe, .AboutMe {
             align-items: center;
     margin-top:70px;
 
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: $phone-size){
         .flex-column-reverse{
             -webkit-box-orient: horizontal;
             -webkit-box-direction: reverse;
@@ -27,9 +27,18 @@ AboutMe, .AboutMe {
         } 
     }
 
+    .about-elements {
+        display: flex;
+        flex-direction: column;
+        @media screen and (orientation: landscape), screen and (min-width: $phone-size) {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+
     .img-element{
         width: 100%;
-        @media screen and (min-width: 600px){
+        @media screen and (min-width: $phone-size){
             width: 50%;
         }
     }
@@ -42,7 +51,7 @@ AboutMe, .AboutMe {
         border: solid 2px white;
         @media screen and (min-width: $phone-size){
             width: 60%;
-            height: 300px;
+            height: 275px;
         }
     }
 
@@ -56,6 +65,27 @@ AboutMe, .AboutMe {
     .text-about {
         margin: 14px 16px;
         text-align: justify;
+    }
+
+    .about-1 {
+        order: 3;
+        @media screen and (orientation: landscape), screen and (min-width: $phone-size) {
+            order: 2;
+            flex-grow: 1;
+        }
+    }
+    .about-2 {
+        order: 1;
+        @media screen and (orientation: landscape), screen and (min-width: $phone-size) {
+            flex-grow: 1;
+        }
+    }
+    .about-3 {
+        order: 2;
+        @media screen and (orientation: landscape), screen and (min-width: $phone-size) {
+            order: 3;
+            flex-grow: 2;
+        }
     }
     
 }
