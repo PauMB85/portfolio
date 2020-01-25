@@ -1,14 +1,18 @@
 import React from 'react';
 import { Fab } from '@material-ui/core';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import Utils from '../../utils/Utils';
 
 import './Home.scss';
 
+
 function Home(props) {
+
+    const { isDevice } = Utils;
 
     return (
         <div className="Home">
-            <div id="pt" className="canvas">
+            <div id="pt" className="canvas" style={{backgroundAttachment : isDevice? 'auto' : 'fixed'}}>
               <canvas id="canvas" ></canvas>
             </div>
             <div className="flex-column">

@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { Paper } from '@material-ui/core';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import { Paper, TextField, Button} from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
 
 import ValidationForm from './../../utils/ValidationForms';
@@ -17,7 +15,6 @@ const infoInitial = {
     subject: '',
     message: ''
   };
-
 
 function Contact(props) {
 
