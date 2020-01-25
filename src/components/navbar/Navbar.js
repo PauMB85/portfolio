@@ -1,40 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import { Button, IconButton, Icon } from '@material-ui/core';
+import Utils from '../../utils/Utils';
 
 import logo_paumb from './../../nombre-logo-pau.png';
 
 import './Navbar.scss';
 
-function Navbar(props) {
 
+function Navbar(props) {
 
     const [isSticky, setIsSticky] = useState(false);
     const [sticky, setSticky] = useState(0);
 
-    useEffect(() => {
-        const navbar = document.getElementById('navbar');
-        setSticky(navbar.offsetTop);
-    },[])
-    
-    /**
-     * Crear componente
-     */
-    useEffect(() => {
-        if(sticky > 0){
-            window.addEventListener("scroll", handleScroll);
-            return () => {
-                window.removeEventListener("scroll", handleScroll);
-            };
-        }
-        
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[sticky]);
+    const { positionScroll } = Utils();
 
-    const handleScroll = () => {
+    useEffect(() => {
+        resizeUI();
         
-        const positionScroll = window.pageYOffset;
+        window.addEventListener("resize", resizeUI);
+        return () => {
+            window.removeEventListener("resize", resizeUI);
+        };
+    },[]);
+
+    useEffect(() => {
         setIsSticky(positionScroll > sticky ? true : false);
-        
+    },[positionScroll,sticky]);
+
+    function resizeUI() {
+        const navbar = document.getElementById('home');
+        setSticky(navbar.offsetHeight);
     }
 
     return (

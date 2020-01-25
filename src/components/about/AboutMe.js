@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 
@@ -7,38 +7,12 @@ import './AboutMe.scss';
 
 function AboutMe(props) {
 
-    const [isAboutMe, setIsAboutMe] = useState(false);
-    const [aboutMe, setAboutMe] = useState(0);
-
-    useEffect(() => {
-        const aboutMePosition = document.getElementById('about');
-        setAboutMe(aboutMePosition.offsetTop);
-    },[]);
-
-    useEffect(() => {
-        if(aboutMe > 0){
-            window.addEventListener("scroll", handleScroll);
-            return () => {
-                window.removeEventListener("scroll", handleScroll);
-            };
-        }
-        
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[aboutMe]);
-
-    const handleScroll = () => {
-        
-        const positionScroll = window.pageYOffset;
-        if(positionScroll >= aboutMe || positionScroll > aboutMe / 2.5){
-            setIsAboutMe(true);
-        }
-    }
 
     return (
         <div className="AboutMe">
             <h1 className="scroll-up-text">Sobre mi</h1>
             <div className="about-elements">
-                { isAboutMe ? <Description /> : null }
+                <Description />
             </div>
         </div>
     );
