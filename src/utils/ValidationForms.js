@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import axios from './../axios/axiosConfig';
 
 function ValidationForms(infoInitial, validate) {
     
@@ -39,6 +40,23 @@ function ValidationForms(infoInitial, validate) {
         //const validationErrors = validate(info);
         //setErrors(validationErrors);
         console.log('datos', info);
+
+        const params = {
+            mailTo: info.mail,
+            name: info.name,
+            surname: info.surname,
+            subject: info.subject,
+            text: info.message
+        }
+
+        axios.post('/email/send',params).then(data => {
+            console.log('OK:', data);
+        }).catch(error => {
+            console.log('KO',error);
+        }).then(() => {
+            console.log('finally');
+        })
+
         setSubmitting(true);
         setInfo(infoInitial);
     };
