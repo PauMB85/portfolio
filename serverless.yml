@@ -22,8 +22,8 @@ provider:
       Resource: "*"
 
   environment:
-    pau-portfolio: ${env:MAIL_PAU}
-    xis-portfolio: ${env:MAIL_XIS}
+    pauportfolio: ${env:MAIL_PAU}
+    xisportfolio: ${env:MAIL_XIS}
     cbdmaravilla: ${env:MAIL_MARAVILLA}
 
 functions:
