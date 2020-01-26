@@ -1,0 +1,35 @@
+# 
+
+service: portfolio
+
+# Create an optimized package for our functions 
+package:
+  individually: true
+
+plugins:
+  - serverless-bundle # Package our functions with Webpack
+  - serverless-dotenv-plugin # Load .env as environment variables
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: dev
+  region: us-east-1
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "ses:SendEmail"
+      Resource: "*"
+
+#  environment:
+#    variable1: value1
+
+functions:
+  sendMail:
+    handler: sendMail.handler
+    events:
+      - http:
+          path: email/send
+          method: post
+          cors: true
