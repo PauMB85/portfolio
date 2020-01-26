@@ -1,5 +1,4 @@
 # 
-
 service: portfolio
 
 # Create an optimized package for our functions 
@@ -22,8 +21,10 @@ provider:
         - "ses:SendEmail"
       Resource: "*"
 
-#  environment:
-#    variable1: value1
+  environment:
+    pau-portfolio: ${env:MAIL_PAU}
+    xis-portfolio: ${env:MAIL_XIS}
+    cbdmaravilla: ${env:MAIL_MARAVILLA}
 
 functions:
   sendMail:

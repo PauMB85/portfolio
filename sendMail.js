@@ -5,11 +5,13 @@ const ses = new AWS.SES({region: 'us-east-1'});
 export function handler(event, context, callback){
     console.log('context:', context);
     console.log('event', event);
-    const {mailTo, name, surname, subject, text } = JSON.parse(event.body);
+    const { apisite } = JSON.parse(event.headers);
+    console.log('enviorement: ', process.env[apisite]);
+    const { mailTo, name, surname, subject, text } = JSON.parse(event.body);
     const bodyMail = `Hola acabas de recibir un mail de ${name} ${surname} (${mailTo}): \n ${text}`;
     const params = {
         Destination: {
-            ToAddresses: ["xisketa87@hotmail.com, paumb85@gmail.com"]
+            ToAddresses: [process.env[apisite]]
         },
         Message: {
             Body: {
@@ -17,7 +19,7 @@ export function handler(event, context, callback){
             },
             Subject: { Data: subject}
         },
-        Source: "paumb85@gmail.com"
+        Source: process.env[apisite]
     };
     return ses.sendEmail(params).promise().then(data => {
         console.log('mail_ok:',data);

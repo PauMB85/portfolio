@@ -1,3 +1,4 @@
 {
+    "headers":"{\"apisite\":\"pau-portfolio\"}",
     "body": "{\"mailTo\":\"xisketa87@gmail.com\",\"name\":\"Hello\",\"surname\":\"world\",\"subject\":\"Test Mail\",\"text\":\"Hi this is a mail test\"}"
 }
