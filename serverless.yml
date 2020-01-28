@@ -7,8 +7,8 @@ package:
 
 plugins:
   - serverless-bundle # Package our functions with Webpack
-  - serverless-dotenv-plugin # Load .env as environment variables
   - serverless-offline
+  - serverless-dotenv-plugin # Load .env as environment variables
 
 provider:
   name: aws
@@ -33,4 +33,17 @@ functions:
       - http:
           path: email/send
           method: post
-          cors: true
+          cors:
+            origin: '*' # <-- Specify allowed origin
+            headers: # <-- Specify allowed headers
+              - apisite
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: false
+
+resources:
+  - ${file(resources/api-gateway-errors.yml)}

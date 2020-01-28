@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from './../axios/axiosConfig';
+//import { API } from 'aws-amplify';
 
 function ValidationForms(infoInitial, validate) {
     
@@ -47,7 +48,7 @@ function ValidationForms(infoInitial, validate) {
             surname: info.surname,
             subject: info.subject,
             text: info.message
-        }
+        };
 
         axios.post('/email/send',params).then(data => {
             console.log('OK:', data);
@@ -56,6 +57,13 @@ function ValidationForms(infoInitial, validate) {
         }).then(() => {
             console.log('finally');
         })
+        /*API.post('email','/email/send', params).then(data => {
+            console.log('ok', data);
+        }).catch(error => {
+            console.log('ko',error);
+        }).finally(() => {
+            console.log('finally');
+        });*/
 
         setSubmitting(true);
         setInfo(infoInitial);
