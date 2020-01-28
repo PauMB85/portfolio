@@ -22,9 +22,9 @@ provider:
       Resource: "*"
 
   environment:
-    pauportfolio: ${env:MAIL_PAU}
-    xisportfolio: ${env:MAIL_XIS}
-    cbdmaravilla: ${env:MAIL_MARAVILLA}
+    pauportfolio: ${env:pauportfolio}
+    xisportfolio: ${env:xisportfolio}
+    cbdmaravilla: ${env:cbdmaravilla}
 
 functions:
   sendMail:
