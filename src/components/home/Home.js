@@ -16,13 +16,13 @@ function Home(props) {
             </div>
             <div className="flex-column">
               <div className="text">
-                Hola, soy <span className="hightlight"> Pau Maraví</span>.
+                Hi!, I am <span className="hightlight"> Pau Maraví</span>.
                 <br/>
-                Desarrollador y líder de equipo.
+                I am software developer and development project leader.
                 <br />
                 <div className="text-little">
-                  Me encanta diseñar y construir aplicaciones web! 
-                  <br/>Tines una idea, proyecto o algún problema??
+                  I love designing and building web applications! 
+                  <br/>You have an idea, project or a problem??
                 </div>
               </div>
               <div className="up-down">

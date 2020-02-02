@@ -22,7 +22,7 @@ function Footer(props) {
                         &copy; Pau Maravi Busquets - portfolio v1.0
                     </div>
                     <div className="rights">
-                        En la construcción de este proyecto se han utilizado las tecnologías React, 
+                        In the construction of this project the technologies have been used React, 
                         AWS Lambda, API Gateway, S3, Route 53 y SNS
                     </div>
                 </div>

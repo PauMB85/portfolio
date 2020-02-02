@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Paper, TextField, Button} from '@material-ui/core';
+import { Paper, TextField, Button, LinearProgress, Dialog, DialogContent, DialogContentText, DialogTitle, Slide, DialogActions } from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
-
+import { makeStyles } from '@material-ui/core/styles';
 import ValidationForm from './../../utils/ValidationForms';
 import ValidateInputs from './../../utils/ValidateInputs';
 
@@ -16,14 +16,28 @@ const infoInitial = {
     message: ''
   };
 
+const useStyles = makeStyles(theme => ({
+    root: {
+      width: '90%',
+      '& > * + *': {
+        marginTop: theme.spacing(2),
+      },
+    },
+  }));
+
 function Contact(props) {
 
-    const { handleSubmit, handleChange, handleBlur, info, errors, isSubmitting } = ValidationForm(infoInitial,ValidateInputs);
-
+    const { handleSubmit, handleChange, handleBlur, info, errors, isSubmitting, isError, isLoading } = ValidationForm(infoInitial,ValidateInputs);
+    const classes = useStyles();
+    
     return (
         <div className="Contact">
-            <h1>Contacto</h1>
-            {isSubmitting? <h2> Gracias por contactar</h2> : null}
+            <h1>Contact</h1>
+            {isSubmitting && !isError && !isLoading? <ThankYou /> : null}
+            {isLoading? <div className={classes.root}>
+                <LinearProgress color="secondary"/>
+            </div> : null }
+             
             <Paper className="papper">
                 <form onSubmit={handleSubmit}>
                     <div className="flex-column">
@@ -34,8 +48,8 @@ function Contact(props) {
                                     name="name"
                                     error={errors.name}
                                     required
-                                    label="Nombre"
-                                    placeholder="Nombre"
+                                    label="Name"
+                                    placeholder="Name"
                                     variant="outlined"
                                     fullWidth
                                     value={info.name}
@@ -46,8 +60,8 @@ function Contact(props) {
                             <div className="input-contact">
                                 <TextField
                                     name="surname"
-                                    label="Apellidos"
-                                    placeholder="Apellidos"
+                                    label="Surname"
+                                    placeholder="Surname"
                                     variant="outlined"
                                     fullWidth
                                     onChange={handleChange}
@@ -61,8 +75,8 @@ function Contact(props) {
                                     name="mail"
                                     error={errors.mail}
                                     required
-                                    label="Correo"
-                                    placeholder="Correo"
+                                    label="Mail"
+                                    placeholder="Mail"
                                     type="email"
                                     variant="outlined"
                                     fullWidth
@@ -78,8 +92,8 @@ function Contact(props) {
                                     name="subject"
                                     error={errors.subject}
                                     required
-                                    label="Título"
-                                    placeholder="Título"
+                                    label="Title"
+                                    placeholder="Title"
                                     variant="outlined"
                                     fullWidth
                                     value={info.subject}
@@ -96,8 +110,8 @@ function Contact(props) {
                                     required
                                     multiline
                                     rows="4"
-                                    label="Mensaje"
-                                    placeholder="Mensaje"
+                                    label="Message"
+                                    placeholder="Message"
                                     variant="outlined"
                                     fullWidth
                                     value={info.message}
@@ -116,7 +130,7 @@ function Contact(props) {
                                         type="submit"
                                         className="width-button"
                                     >
-                                        Enviar
+                                        Send
                                     </Button>
                                 </div>
                             </div>
@@ -125,6 +139,41 @@ function Contact(props) {
                 </form>
             </Paper>
         </div>
+    );
+}
+
+function ThankYou () {
+
+    const isError = false;
+    const [open, setOpen] = React.useState(true);
+    const Transition = React.forwardRef(function Transition(props, ref) {
+        return <Slide direction="up" ref={ref} {...props} />;
+    });
+    const titulo = isError? 'Oops!': 'Thank you';
+    const body = isError? 'Something was wrong! Try it again.': 'I will respond as soon as possible';
+
+    const handleClick = () => setOpen(false);
+
+    return (
+        <Dialog
+            open={open}
+            TransitionComponent={Transition}
+            keepMounted
+            aria-labelledby="alert-dialog-slide-title"
+            aria-describedby="alert-dialog-slide-description"
+        >
+            <DialogTitle id="alert-dialog-slide-title">{titulo}</DialogTitle>
+            <DialogContent>
+                <DialogContentText id="alert-dialog-slide-description">
+                    {body}
+                </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+                <Button onClick={handleClick} color="primary">
+                    Close
+                </Button>
+            </DialogActions>
+        </Dialog>
     );
 }
 

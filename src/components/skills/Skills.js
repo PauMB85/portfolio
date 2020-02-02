@@ -15,7 +15,7 @@ function Skills(props) {
         <div className="Skills">
             <h1>Skills</h1>
             <div className="collect-skills">
-                <h2>Frameworks y lenguajes</h2>
+                <h2>Frameworks & languages</h2>
                 <div className="logos-skills">
                     <JavascriptLogo classes="logos"/>
                     <Html5Logo classes="logos"/>
@@ -26,7 +26,7 @@ function Skills(props) {
                     <SassLogo classes="logos"/>
                     <NodeLogo classes="logos"/>
                 </div>
-                <h2>Tecnologías</h2>
+                <h2>Technologies</h2>
                 <div className="logos-skills">
                     <AWSLambdaLogo classes="logos"/>
                     <AWSApiGatewayLogo classes="logos"/>

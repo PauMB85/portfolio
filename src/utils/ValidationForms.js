@@ -7,6 +7,8 @@ function ValidationForms(infoInitial, validate) {
     const [info, setInfo] = useState(infoInitial);
     const [errors, setErrors] = useState({});
     const [isSubmitting, setSubmitting] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect ( () => {
         if(isSubmitting) {
@@ -38,10 +40,7 @@ function ValidationForms(infoInitial, validate) {
 
     function handleSubmit(event) {
         event.preventDefault();
-        //const validationErrors = validate(info);
-        //setErrors(validationErrors);
-        console.log('datos', info);
-
+        setIsLoading(true);
         const params = {
             mailTo: info.mail,
             name: info.name,
@@ -52,21 +51,17 @@ function ValidationForms(infoInitial, validate) {
 
         axios.post('/email/send',params).then(data => {
             console.log('OK:', data);
+            setSubmitting(true);
+            setIsError(false);
         }).catch(error => {
+            setIsError(true);
             console.log('KO',error);
         }).then(() => {
             console.log('finally');
-        })
-        /*API.post('email','/email/send', params).then(data => {
-            console.log('ok', data);
-        }).catch(error => {
-            console.log('ko',error);
-        }).finally(() => {
-            console.log('finally');
-        });*/
+            setIsLoading(false);
+            setInfo(infoInitial);
+        });
 
-        setSubmitting(true);
-        setInfo(infoInitial);
     };
 
     function checkInput(event){
@@ -75,7 +70,7 @@ function ValidationForms(infoInitial, validate) {
         setErrors(validationErrors);
     }
 
-    return { handleSubmit, handleChange, handleBlur, handleInput, info, errors, isSubmitting };
+    return { handleSubmit, handleChange, handleBlur, handleInput, info, errors, isSubmitting, isError, isLoading };
 }
 
 export default ValidationForms;

@@ -27,33 +27,33 @@ function Description () {
             <div className="text-element about-2">
                 <div className="text-about">
                     <div>
-                        Hola! Soy Pau Maraví y un apasionado de la tecnología y del desarrollo web.
+                        Hi! Soy Pau Maraví. I am passionate about technology and web development.
                     </div>
                     <br />
                     <div>
-                        En mi dia a dia trabajo como Full-stack. 
-                        En el front-end utilizo:
+                        I work as a full stack developer. 
+                        In the front end I use:
                         <br />
                         <div className="flex-row-start">
-                            <KeyboardArrowRightIcon /> AngularJS, si... AngularJS
+                            <KeyboardArrowRightIcon /> AngularJS ...
                         </div>
                         <div className="flex-row-start">
                             <KeyboardArrowRightIcon /> ReactJS, oh yeah!  
                         </div>
-                        y el Back-end que utilizo es Spring con Java 7/8.
+                        in the back end I use spring with Java 7/8.
                     </div>
                     <br />
                     <div>
-                        En mi tiempo libre me gusta conocer nuevas tecnologías y hacer un PoC para conocerlas.
+                        In my free time I like to know new technologies and do a PoC to know them.
                     </div>
                 </div>
             </div>
             <div className="text-element about-3">
                 <div className="text-about">
                     <div>
-                        Cuando tengo que crear un nuevo proyecto, siempre me gusta utilizar AWS (lambda, dynamoDB, API Gateway, ...) para back-end
-                        y para el front me gusta utilizar Angular o React.
-                        Además, me gusta utilizar herramientas DevOps para poder llevar a cabo un control de los desarrollos mediente Travis en Github.
+                        When I have to create a new project, I always like to use AWS (lambda, dynamoDB, API Gateway, ...) for back-end
+                        and for the front I like to use Angular or React.
+                        In addition, I like to use DevOps tools to be able to carry out a control of the developments like Travis and Github.
                     </div>
                 </div>
             </div>
