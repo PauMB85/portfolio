@@ -10,7 +10,7 @@ function AboutMe(props) {
 
     return (
         <div className="AboutMe">
-            <h1 className="scroll-up-text">Sobre mi</h1>
+            <h1 className="scroll-up-text">About me</h1>
             <div className="about-elements">
                 <Description />
             </div>
@@ -27,7 +27,7 @@ function Description () {
             <div className="text-element about-2">
                 <div className="text-about">
                     <div>
-                        Hi! Soy Pau Maraví. I am passionate about technology and web development.
+                        Hi! I am Pau Maraví. I am passionate about technology and web development.
                     </div>
                     <br />
                     <div>

@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "PauMB",
+  "name": "Portfolio Pau Maravi Busquets",
   "icons": [
     {
       "src": "nombre-logo-pau.png",
@@ -13,7 +13,7 @@
       "sizes": "192x192"
     },
     {
-      "src": "lnombre-logo-pau.png",
+      "src": "nombre-logo-pau.png",
       "type": "image/png",
       "sizes": "512x512"
     }

@@ -16,12 +16,12 @@ function Home(props) {
             </div>
             <div className="flex-column">
               <div className="text">
-                Hi!, I am <span className="hightlight"> Pau Maraví</span>.
+                Hi!, I am <span className="hightlight">Pau Maraví</span>.
                 <br/>
                 I am software developer and development project leader.
                 <br />
                 <div className="text-little">
-                  I love designing and building web applications! 
+                  I like designing and building web applications! 
                   <br/>You have an idea, project or a problem??
                 </div>
               </div>
