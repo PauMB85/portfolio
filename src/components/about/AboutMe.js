@@ -32,7 +32,7 @@ function Description () {
                     <br />
                     <div>
                         I work as a full stack developer. 
-                        In the front end I use:
+                        As frontend technologies I use:
                         <br />
                         <div className="flex-row-start">
                             <KeyboardArrowRightIcon /> AngularJS ...
@@ -40,11 +40,11 @@ function Description () {
                         <div className="flex-row-start">
                             <KeyboardArrowRightIcon /> ReactJS, oh yeah!  
                         </div>
-                        in the back end I use spring with Java 7/8.
+                        as backend I use spring with Java 7/8.
                     </div>
                     <br />
                     <div>
-                        In my free time I like to know new technologies and do a PoC to know them.
+                        In my free time I like to learn new technologies and do a PoC to know them.
                     </div>
                 </div>
             </div>

@@ -18,11 +18,11 @@ function Home(props) {
               <div className="text">
                 Hi!, I am <span className="hightlight">Pau Maraví</span>.
                 <br/>
-                I am software developer and development project leader.
+                I am a software developer and development project leader.
                 <br />
                 <div className="text-little">
                   I like designing and building web applications! 
-                  <br/>You have an idea, project or a problem??
+                  <br/>Do you have an idea, project or a problem??
                 </div>
               </div>
               <div className="up-down">
