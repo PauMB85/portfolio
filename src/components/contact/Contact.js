@@ -146,18 +146,17 @@ function ThankYou () {
 
     const isError = false;
     const [open, setOpen] = React.useState(true);
-    const Transition = React.forwardRef(function Transition(props, ref) {
-        return <Slide direction="up" ref={ref} {...props} />;
-    });
+
     const titulo = isError? 'Oops!': 'Thank you';
     const body = isError? 'Something was wrong! Try it again.': 'I will respond as soon as possible';
 
     const handleClick = () => setOpen(false);
 
     return (
+        <div>
         <Dialog
             open={open}
-            TransitionComponent={Transition}
+            TransitionComponent={Slide}
             keepMounted
             aria-labelledby="alert-dialog-slide-title"
             aria-describedby="alert-dialog-slide-description"
@@ -174,6 +173,7 @@ function ThankYou () {
                 </Button>
             </DialogActions>
         </Dialog>
+        </div>
     );
 }
 
