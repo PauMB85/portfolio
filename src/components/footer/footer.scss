@@ -1,26 +1,24 @@
 @import './../../style/properties';
 
-Footer, .Footer {
+footer,
+.Footer {
+	.paper {
+		background-color: $color-main;
+	}
 
+	.icons {
+		height: 36px;
+		width: 36px;
+	}
 
-    .paper {
-        background-color: $color-main;
-    }
+	.github-icon {
+		-webkit-filter: invert(100%);
+		filter: invert(100%);
+	}
 
-    .icons {
-        height: 36px;
-        width: 36px;
-    }
-
-    .github-icon {
-        -webkit-filter: invert(100%);
-                filter: invert(100%);
-    }
-
-    .rights {
-        margin: 10px;
-        color: #ffffff;
-        pointer-events: none;
-    }
-    
+	.rights {
+		margin: 10px;
+		color: #ffffff;
+		pointer-events: none;
+	}
 }

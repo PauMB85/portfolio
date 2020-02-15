@@ -14,34 +14,32 @@ import Skills from './components/skills/Skills';
 import Footer from './components/footer/Footer';
 
 function App() {
-
-  return (
-    <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <div className="overflow-wrap flex-column">
-          {/* Home */}
-          <section id="home">
-            <Home />
-          </section>
-          <Navbar />
-          {/* about me */}
-          <section id="about">
-            <AboutMe />
-          </section>
-          {/* skills */}
-          <section id="skills">
-            <Skills />
-          </section>
-          {/* contact */}
-          <section id="contact">
-            <Contact />
-          </section>
-          {/* footer */}
-          <Footer />
-        </div>
-      
-    </ThemeProvider>
-  );
+	return (
+		<ThemeProvider theme={theme}>
+			<CssBaseline />
+			<div className="overflow-wrap flex-column">
+				{/* Home */}
+				<section id="home">
+					<Home />
+				</section>
+				<Navbar />
+				{/* about me */}
+				<section id="about">
+					<AboutMe />
+				</section>
+				{/* skills */}
+				<section id="skills">
+					<Skills />
+				</section>
+				{/* contact */}
+				<section id="contact">
+					<Contact />
+				</section>
+				{/* footer */}
+				<Footer />
+			</div>
+		</ThemeProvider>
+	);
 }
 
 export default App;

@@ -1,63 +1,61 @@
 @import './../../style/properties';
 
-Home, .Home {
+Home,
+.Home {
+	background-color: rgb(0, 0, 0);
+	height: 100vh;
+	.flex-column {
+		height: 100%;
+		justify-content: center;
+		align-items: center;
+	}
 
-    background-color: rgb(0, 0, 0);
-    height: 100vh;
-    .flex-column {
-        height: 100%;
-        justify-content: center;
-        align-items: center;
-    }
+	.canvas {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background: url(./../../img/encabezado/estrella.png) center center/cover;
+	}
 
-    .canvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: url(./../../img/encabezado/estrella.png) center center/cover;    
+	.text,
+	.text-little {
+		margin: 0 0 20px 0;
+		font-size: 15pt;
+		line-height: 20pt;
+		z-index: 1;
+		pointer-events: none;
+		color: #fff;
+		@media screen and (min-width: $phone-size) {
+			font-size: 32pt;
+			line-height: 36pt;
+		}
+	}
 
-    }
+	.text-little {
+		font-size: 10pt;
+		margin: 15px;
+		@media screen and (min-width: $phone-size) {
+			font-size: 15pt;
+			line-height: 36pt;
+		}
+	}
 
-    .text, .text-little {
-        margin: 0 0 20px 0;
-        font-size: 15pt;
-        line-height: 20pt;
-        z-index: 1;
-        pointer-events: none;
-        color: #fff;
-        @media screen and (min-width: $phone-size){
-            font-size: 32pt;
-            line-height: 36pt;
-        }
-    }
+	.hightlight {
+		color: $color-secondary;
+	}
 
-    .text-little {
-        font-size: 10pt;
-        margin: 15px;
-        @media screen and (min-width: $phone-size){
-            font-size: 15pt;
-            line-height: 36pt;
-        }
-    }
+	.up-down {
+		animation: up-down 1.5s infinite alternate;
+	}
 
-    .hightlight {
-        color: $color-secondary;
-    }
-
-    .up-down {
-        animation: up-down 1.5s infinite  alternate;
-    }
-
-    @keyframes up-down {
-        from{
-            transform: translateY(-10px);
-        }
-        to {
-            transform: translateY(10px);
-        }
-    }
-    
-      
+	@keyframes up-down {
+		from {
+			transform: translateY(-10px);
+		}
+		to {
+			transform: translateY(10px);
+		}
+	}
 }

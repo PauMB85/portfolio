@@ -1,20 +1,20 @@
 html {
-  margin: 0;
-  scroll-behavior: smooth;
+	margin: 0;
+	scroll-behavior: smooth;
 }
 
 body {
-  color:#fff;
-  margin: 0;
-  padding: 0;
-  font-family: "Roboto";
-  text-align: center;
-  font-size: 8pt;
-  overflow-x: hidden;
+	color: #fff;
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto';
+	text-align: center;
+	font-size: 8pt;
+	overflow-x: hidden;
 }
 
-@media screen and (min-width: 600px){
-  body {
-    font-size: 12pt;
-  }
+@media screen and (min-width: 600px) {
+	body {
+		font-size: 12pt;
+	}
 }

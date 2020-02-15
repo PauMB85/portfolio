@@ -1,91 +1,89 @@
 @import './../../style/properties';
 
-AboutMe, .AboutMe {
+AboutMe,
+.AboutMe {
+	display: -webkit-box;
 
-    display: -webkit-box;
+	display: -ms-flexbox;
 
-    display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	margin-top: 70px;
 
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    margin-top:70px;
+	@media screen and (min-width: $phone-size) {
+		.flex-column-reverse {
+			-webkit-box-orient: horizontal;
+			-webkit-box-direction: reverse;
+			-ms-flex-direction: row-reverse;
+			flex-direction: row-reverse;
+			-ms-flex-pack: distribute;
+			justify-content: space-around;
+		}
+	}
 
-    @media screen and (min-width: $phone-size){
-        .flex-column-reverse{
-            -webkit-box-orient: horizontal;
-            -webkit-box-direction: reverse;
-                -ms-flex-direction: row-reverse;
-                    flex-direction: row-reverse;
-            -ms-flex-pack: distribute;
-                justify-content: space-around;
-        } 
-    }
+	.about-elements {
+		display: flex;
+		flex-direction: column;
+		@media screen and (orientation: landscape), screen and (min-width: $phone-size) {
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+	}
 
-    .about-elements {
-        display: flex;
-        flex-direction: column;
-        @media screen and (orientation: landscape), screen and (min-width: $phone-size) {
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-    }
+	.img-element {
+		width: 100%;
+		@media screen and (min-width: $phone-size) {
+			width: 50%;
+		}
+	}
 
-    .img-element{
-        width: 100%;
-        @media screen and (min-width: $phone-size){
-            width: 50%;
-        }
-    }
-    
+	.img-me {
+		width: 90%;
+		height: 100%;
+		margin: 14px 14px;
+		border: solid 2px white;
+		@media screen and (min-width: $phone-size) {
+			width: 60%;
+			height: 275px;
+		}
+	}
 
-    .img-me{
-        width: 90%;
-        height: 100%;
-        margin: 14px 14px;
-        border: solid 2px white;
-        @media screen and (min-width: $phone-size){
-            width: 60%;
-            height: 275px;
-        }
-    }
+	.text-element {
+		width: 100%;
+		@media screen and (min-width: $phone-size) {
+			width: 50%;
+		}
+	}
 
-    .text-element{
-        width: 100%;
-        @media screen and (min-width: $phone-size){
-            width: 50%;
-        }
-    }
+	.text-about {
+		margin: 14px 16px;
+		text-align: justify;
+	}
 
-    .text-about {
-        margin: 14px 16px;
-        text-align: justify;
-    }
-
-    .about-1 {
-        order: 3;
-        @media screen and (orientation: landscape), screen and (min-width: $phone-size) {
-            order: 2;
-            flex-grow: 1;
-        }
-    }
-    .about-2 {
-        order: 1;
-        @media screen and (orientation: landscape), screen and (min-width: $phone-size) {
-            flex-grow: 1;
-        }
-    }
-    .about-3 {
-        order: 2;
-        @media screen and (orientation: landscape), screen and (min-width: $phone-size) {
-            order: 3;
-            flex-grow: 2;
-        }
-    }
-    
+	.about-1 {
+		order: 3;
+		@media screen and (orientation: landscape), screen and (min-width: $phone-size) {
+			order: 2;
+			flex-grow: 1;
+		}
+	}
+	.about-2 {
+		order: 1;
+		@media screen and (orientation: landscape), screen and (min-width: $phone-size) {
+			flex-grow: 1;
+		}
+	}
+	.about-3 {
+		order: 2;
+		@media screen and (orientation: landscape), screen and (min-width: $phone-size) {
+			order: 3;
+			flex-grow: 2;
+		}
+	}
 }

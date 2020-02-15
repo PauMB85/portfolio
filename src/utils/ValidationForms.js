@@ -1,76 +1,75 @@
 import { useState, useEffect } from 'react';
 import axios from './../axios/axiosConfig';
-//import { API } from 'aws-amplify';
 
 function ValidationForms(infoInitial, validate) {
-    
-    const [info, setInfo] = useState(infoInitial);
-    const [errors, setErrors] = useState({});
-    const [isSubmitting, setSubmitting] = useState(false);
-    const [isError, setIsError] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
+	const [info, setInfo] = useState(infoInitial);
+	const [errors, setErrors] = useState({});
+	const [isSubmitting, setSubmitting] = useState(false);
+	const [isError, setIsError] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 
-    useEffect ( () => {
-        if(isSubmitting) {
-            const noErrors = Object.keys(errors).length === 0;
+	useEffect(() => {
+		if (isSubmitting) {
+			const noErrors = Object.keys(errors).length === 0;
 
-            setSubmitting(noErrors);
-        }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [errors]);
+			setSubmitting(noErrors);
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [errors]);
 
+	function handleChange(event) {
+		const { name, value } = event.target;
 
-    function handleChange(event) {
+		setInfo({
+			...info,
+			[name]: value
+		});
+	}
 
-        const { name, value } = event.target;
+	function handleBlur(event) {
+		checkInput(event);
+	}
 
-        setInfo({
-            ...info,
-            [name]: value
-        })
-    };
+	function handleInput(event) {
+		checkInput(event);
+	}
 
-    function handleBlur(event) {
-        checkInput(event);
-    }
+	function handleSubmit(event) {
+		event.preventDefault();
+		setIsLoading(true);
+		const params = {
+			mailTo: info.mail,
+			name: info.name,
+			surname: info.surname,
+			subject: info.subject,
+			text: info.message
+		};
 
-    function handleInput(event) {
-        checkInput(event);
-    }
+		axios
+			.post('/email/send', params)
+			.then(data => {
+				console.log('OK:', data);
+				setSubmitting(true);
+				setIsError(false);
+			})
+			.catch(error => {
+				setIsError(true);
+				console.log('KO', error);
+			})
+			.then(() => {
+				console.log('finally');
+				setIsLoading(false);
+				setInfo(infoInitial);
+			});
+	}
 
-    function handleSubmit(event) {
-        event.preventDefault();
-        setIsLoading(true);
-        const params = {
-            mailTo: info.mail,
-            name: info.name,
-            surname: info.surname,
-            subject: info.subject,
-            text: info.message
-        };
+	function checkInput(event) {
+		const { name } = event.target;
+		const validationErrors = validate(info, name, errors);
+		setErrors(validationErrors);
+	}
 
-        axios.post('/email/send',params).then(data => {
-            console.log('OK:', data);
-            setSubmitting(true);
-            setIsError(false);
-        }).catch(error => {
-            setIsError(true);
-            console.log('KO',error);
-        }).then(() => {
-            console.log('finally');
-            setIsLoading(false);
-            setInfo(infoInitial);
-        });
-
-    };
-
-    function checkInput(event){
-        const { name } = event.target
-        const validationErrors = validate(info, name, errors);
-        setErrors(validationErrors);
-    }
-
-    return { handleSubmit, handleChange, handleBlur, handleInput, info, errors, isSubmitting, isError, isLoading };
+	return { handleSubmit, handleChange, handleBlur, handleInput, info, errors, isSubmitting, isError, isLoading };
 }
 
 export default ValidationForms;

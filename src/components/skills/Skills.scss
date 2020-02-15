@@ -1,66 +1,67 @@
 @import './../../style/properties';
 
-Skills, .Skills {
-    
-    display: -webkit-box;
-    
-    display: -ms-flexbox;
-    
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    margin-top:70px;
+Skills,
+.Skills {
+	display: -webkit-box;
 
-    .logos-skills {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: row;
-                flex-direction: row;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-        -ms-flex-pack: distribute;
-            justify-content: space-around;
-        @media screen and (min-width: $phone-size) {
-            margin: 50px 30px;
-        }
-    }
+	display: -ms-flexbox;
 
-    .logos {
-        height: 100px;
-        width: 100px;
-        margin: 10px 0;
-        @media screen and (min-width: $phone-size) {
-            margin: 10px;
-        }
-        
-    }
-    
-    .collect-skills {
-        width: 100%;
-    }
-    .charts-wrapper {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: row;
-                flex-direction: row;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-        -ms-flex-pack: distribute;
-            justify-content: space-around;
-    }
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	margin-top: 70px;
 
-    .chart {
-        margin: '5px 10px'; height:'100px'; width:'100px'
-    }
+	.logos-skills {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: row;
+		flex-direction: row;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-ms-flex-pack: distribute;
+		justify-content: space-around;
+		@media screen and (min-width: $phone-size) {
+			margin: 50px 30px;
+		}
+	}
+
+	.logos {
+		height: 100px;
+		width: 100px;
+		margin: 10px 0;
+		@media screen and (min-width: $phone-size) {
+			margin: 10px;
+		}
+	}
+
+	.collect-skills {
+		width: 100%;
+	}
+	.charts-wrapper {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: row;
+		flex-direction: row;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-ms-flex-pack: distribute;
+		justify-content: space-around;
+	}
+
+	.chart {
+		margin: '5px 10px';
+		height: '100px';
+		width: '100px';
+	}
 }
