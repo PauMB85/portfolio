@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -592,7 +592,7 @@ exports.computeSourceURL = computeSourceURL;
 var base64VLQ = __webpack_require__(2);
 var util = __webpack_require__(0);
 var ArraySet = __webpack_require__(3).ArraySet;
-var MappingList = __webpack_require__(9).MappingList;
+var MappingList = __webpack_require__(10).MappingList;
 
 /**
  * An instance of the SourceMapGenerator represents a source map which is
@@ -1050,7 +1050,7 @@ exports.SourceMapGenerator = SourceMapGenerator;
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-var base64 = __webpack_require__(8);
+var base64 = __webpack_require__(9);
 
 // A single base 64 digit can contain 6 bits of data. For the base 64 variable
 // length quantities we use in the source map spec, the first bit is the sign,
@@ -1284,52 +1284,35 @@ exports.ArraySet = ArraySet;
 
 /***/ }),
 /* 4 */
+/***/ (function(module, exports) {
+
+module.exports = require("aws-sdk");
+
+/***/ }),
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "handler", function() { return handler; });
-/* harmony import */ var source_map_support_register__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
+/* harmony import */ var source_map_support_register__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
 /* harmony import */ var source_map_support_register__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(source_map_support_register__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var aws_sdk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
+/* harmony import */ var aws_sdk__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(aws_sdk__WEBPACK_IMPORTED_MODULE_1__);
 
 
-const AWS = __webpack_require__(18);
-
-const ses = new AWS.SES({
+const s3 = new aws_sdk__WEBPACK_IMPORTED_MODULE_1___default.a.S3({
   region: 'us-east-1'
 });
 function handler(event, context, callback) {
-  console.log('context:', context);
-  console.log('event', event);
-  const {
-    apisite
-  } = event.headers;
-  console.log('enviorement: ', process.env[apisite]);
-  const {
-    mailTo,
-    name,
-    surname,
-    subject,
-    text
-  } = JSON.parse(event.body);
-  const bodyMail = `Hola acabas de recibir un mail de ${name} ${surname} (${mailTo}): \n ${text}`;
+  const bucketName = process.env['paumb_img_bucket'];
+  console.log('enviorement: ', bucketName);
   const params = {
-    Destination: {
-      ToAddresses: [process.env[apisite]]
-    },
-    Message: {
-      Body: {
-        Text: {
-          Data: bodyMail
-        }
-      },
-      Subject: {
-        Data: subject
-      }
-    },
-    Source: process.env[apisite]
+    Bucket: bucketName,
+    Delimiter: '/',
+    Prefix: 'logos/'
   };
-  ses.sendEmail(params, (error, data) => {
+  s3.listObjectsV2(params, (error, data) => {
     //enable cors
     const headers = {
       "Access-Control-Allow-Origin": "*",
@@ -1346,13 +1329,25 @@ function handler(event, context, callback) {
       };
       callback(null, response);
       return;
-    } // Return status code 200 and the newly created item
+    }
 
+    const contents = data.Contents;
+    let logos = [];
+
+    if (contents.length > 0) {
+      logos = contents.map(img => {
+        const imgg = {
+          name: img.Key,
+          url: `https://${bucketName}.s3.amazonaws.com/${img.Key}`
+        };
+        return imgg;
+      });
+    }
 
     const response = {
       statusCode: 200,
       headers: headers,
-      body: JSON.stringify(data)
+      body: JSON.stringify(logos)
     };
     callback(null, response);
   });
@@ -1360,22 +1355,22 @@ function handler(event, context, callback) {
 ;
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(6).install();
-
-
-/***/ }),
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var SourceMapConsumer = __webpack_require__(7).SourceMapConsumer;
-var path = __webpack_require__(14);
+__webpack_require__(7).install();
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var SourceMapConsumer = __webpack_require__(8).SourceMapConsumer;
+var path = __webpack_require__(15);
 
 var fs;
 try {
-  fs = __webpack_require__(15);
+  fs = __webpack_require__(16);
   if (!fs.existsSync || !fs.readFileSync) {
     // fs doesn't have all methods we need
     fs = null;
@@ -1384,7 +1379,7 @@ try {
   /* nop */
 }
 
-var bufferFrom = __webpack_require__(16);
+var bufferFrom = __webpack_require__(17);
 
 // Only install once if called multiple times
 var errorFormatterInstalled = false;
@@ -1900,7 +1895,7 @@ exports.install = function(options) {
   if (options.hookRequire && !isInBrowser()) {
     var Module;
     try {
-      Module = __webpack_require__(17);
+      Module = __webpack_require__(18);
     } catch (err) {
       // NOP: Loading in catch block to convert webpack error to warning.
     }
@@ -1960,7 +1955,7 @@ exports.resetRetrieveHandlers = function() {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -1969,12 +1964,12 @@ exports.resetRetrieveHandlers = function() {
  * http://opensource.org/licenses/BSD-3-Clause
  */
 exports.SourceMapGenerator = __webpack_require__(1).SourceMapGenerator;
-exports.SourceMapConsumer = __webpack_require__(10).SourceMapConsumer;
-exports.SourceNode = __webpack_require__(13).SourceNode;
+exports.SourceMapConsumer = __webpack_require__(11).SourceMapConsumer;
+exports.SourceNode = __webpack_require__(14).SourceNode;
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 /* -*- Mode: js; js-indent-level: 2; -*- */
@@ -2047,7 +2042,7 @@ exports.decode = function (charCode) {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* -*- Mode: js; js-indent-level: 2; -*- */
@@ -2132,7 +2127,7 @@ exports.MappingList = MappingList;
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* -*- Mode: js; js-indent-level: 2; -*- */
@@ -2143,10 +2138,10 @@ exports.MappingList = MappingList;
  */
 
 var util = __webpack_require__(0);
-var binarySearch = __webpack_require__(11);
+var binarySearch = __webpack_require__(12);
 var ArraySet = __webpack_require__(3).ArraySet;
 var base64VLQ = __webpack_require__(2);
-var quickSort = __webpack_require__(12).quickSort;
+var quickSort = __webpack_require__(13).quickSort;
 
 function SourceMapConsumer(aSourceMap, aSourceMapURL) {
   var sourceMap = aSourceMap;
@@ -3283,7 +3278,7 @@ exports.IndexedSourceMapConsumer = IndexedSourceMapConsumer;
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
 /* -*- Mode: js; js-indent-level: 2; -*- */
@@ -3400,7 +3395,7 @@ exports.search = function search(aNeedle, aHaystack, aCompare, aBias) {
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports) {
 
 /* -*- Mode: js; js-indent-level: 2; -*- */
@@ -3520,7 +3515,7 @@ exports.quickSort = function (ary, comparator) {
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* -*- Mode: js; js-indent-level: 2; -*- */
@@ -3939,19 +3934,19 @@ exports.SourceNode = SourceNode;
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 module.exports = require("path");
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 module.exports = require("fs");
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 var toString = Object.prototype.toString
@@ -4026,17 +4021,11 @@ module.exports = bufferFrom
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports) {
 
 module.exports = require("module");
 
-/***/ }),
-/* 18 */
-/***/ (function(module, exports) {
-
-module.exports = require("aws-sdk");
-
 /***/ })
 /******/ ])));
-//# sourceMappingURL=sendMail.js.map
+//# sourceMappingURL=getImages.js.map

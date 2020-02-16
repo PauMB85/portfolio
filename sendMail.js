@@ -6,7 +6,7 @@ export function handler(event, context, callback){
     console.log('context:', context);
     console.log('event', event);
     const { apisite } = event.headers;
-    console.log('enviorement: ', process.env[apisite]);
+    console.log('enviorement: ', process.env['paumb_img_bucket']);
     const { mailTo, name, surname, subject, text } = JSON.parse(event.body);
     const bodyMail = `Hola acabas de recibir un mail de ${name} ${surname} (${mailTo}): \n ${text}`;
     const params = {
