@@ -1310,12 +1310,18 @@ const headers = {
   "Access-Control-Allow-Credentials": true
 };
 function handler(event, context, callback) {
-  if (cacheImgs) {
-    console.log('obtenemos imgs de cache...');
-    const response = {
-      statusCode: 200,
-      headers: headers,
-      body: cacheImgs
+  const bucketName = process.env['paumb_img_bucket'];
+  console.log('enviorement: ', bucketName);
+  const params = {
+    Bucket: bucketName,
+    Delimiter: '/',
+    Prefix: 'logos/'
+  };
+  s3.listObjectsV2(params, (error, data) => {
+    //enable cors
+    const headers = {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": true
     };
     callback(null, response);
     return;
@@ -1367,32 +1373,29 @@ function handler(event, context, callback) {
         body: folders
       };
       callback(null, response);
+      return;
     }
+
+    const contents = data.Contents;
+    let logos = [];
+
+    if (contents.length > 0) {
+      logos = contents.map(img => {
+        const imgg = {
+          name: img.Key,
+          url: `https://${bucketName}.s3.amazonaws.com/${img.Key}`
+        };
+        return imgg;
+      });
+    }
+
+    const response = {
+      statusCode: 200,
+      headers: headers,
+      body: JSON.stringify(logos)
+    };
+    callback(null, response);
   });
-
-  function callS3content(params) {
-    return s3.listObjectsV2(params).promise();
-  }
-
-  function processFiles(params) {
-    return callS3content(params).then(data => {
-      const imgs = {};
-
-      if (data.Contents.length > 0) {
-        const nameFolder = data.Prefix.slice(0, -1);
-        const imagenes = data.Contents.map(file => {
-          const imgg = {
-            name: file.Key,
-            url: `https://${bucketName}.s3.amazonaws.com/${file.Key}`
-          };
-          return imgg;
-        });
-        imgs[nameFolder] = imagenes;
-      }
-
-      return imgs;
-    });
-  }
 }
 ;
 
