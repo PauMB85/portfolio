@@ -1,6 +1,7 @@
 import AWS from 'aws-sdk';
 const s3 = new AWS.S3({region: 'us-east-1'});
 
+<<<<<<< HEAD
 let cacheImgs;
 
 const headers = {
@@ -8,6 +9,8 @@ const headers = {
     "Access-Control-Allow-Credentials": true
 };
 
+=======
+>>>>>>> obtenemos carpeta desde pathParams
 export function handler(event, context, callback){
 
     if(cacheImgs){
@@ -22,11 +25,11 @@ export function handler(event, context, callback){
     }
 
     const bucketName = process.env['paumb_img_bucket'];
-
+    const prefix = event.pathParameters.folder
     const params = {
         Bucket: bucketName,
         Delimiter: '/',
-        Prefix: ''
+        Prefix: `${prefix}/`
     };
 
     const foldersBucket = callS3content(params).then(data => {
