@@ -1,14 +1,14 @@
 import AWS from 'aws-sdk';
 const s3 = new AWS.S3({region: 'us-east-1'});
 
-
 export function handler(event, context, callback){
 
     const bucketName = process.env['paumb_img_bucket'];
+    const prefix = event.pathParameters.folder
     const params = {
         Bucket: bucketName,
         Delimiter: '/',
-        Prefix: 'logos/'
+        Prefix: `${prefix}/`
     };
 
     s3.listObjectsV2(params, (error, data) => {
@@ -31,11 +31,10 @@ export function handler(event, context, callback){
         let logos = [];
         if(contents.length > 0) {
             logos = contents.map(img => {
-                const imgg = {
+                return {
                     name: img.Key,
                     url: `https://${bucketName}.s3.amazonaws.com/${img.Key}`
                 };
-                return imgg;
             });
         }
         const response = {
