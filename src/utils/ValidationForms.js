@@ -46,7 +46,7 @@ function ValidationForms(infoInitial, validate) {
 		};
 
 		axios
-			.post('/email/send', params)
+			.post(process.env.REACT_APP_SEND_MAIL, params)
 			.then(data => {
 				console.log('OK:', data);
 				setSubmitting(true);
