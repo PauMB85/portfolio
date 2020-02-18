@@ -77,19 +77,19 @@ export function handler(event, context, callback){
 
     function processFiles(params){
         return callS3content(params).then(data => {
+            
             const imgs = {};
-            if(data.Contents.length > 0 ){
-                const nameFolder = data.Prefix.slice(0, -1);
-                const imagenes = data.Contents.map(file => {
-                    const imgg = {
-                        name: file.Key,
-                        url: `https://${bucketName}.s3.amazonaws.com/${file.Key}`
-                    };
-                    return imgg;
-                });
-                imgs[nameFolder] = imagenes;
-            }
+            const nameFolder = data.Prefix.slice(0, -1);
+            const imgenBucket = data.Contents || [];
+            const imagenes = imgenBucket.map(file => {
+                return {
+                    name: file.Key,
+                    url: `https://${bucketName}.s3.amazonaws.com/${file.Key}`
+                };
+            });
+            imgs[nameFolder] = imagenes;
             return imgs;
+
         });
     }
 };
