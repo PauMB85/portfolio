@@ -1,7 +1,8 @@
 <svg 
     width="2065" 
     height="2500" 
-    viewBox="0 0 256 310" 
+    viewBox="0 0 256 310"
+    id="aws_lambda_svg"
     xmlns="http://www.w3.org/2000/svg" 
     preserveAspectRatio="xMidYMid">
     <path d="M0 245.262l16.322 8.161L19 248.668V59.333l-2.678-3.494L0 64v181.262" fill="#9D5025"/>

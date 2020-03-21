@@ -16,57 +16,57 @@ import { ReactComponent as Github } from './../img/logos/github-1.svg';
 import { ReactComponent as Travis } from './../img/logos/travis-ci.svg';
 
 export function JavascriptLogo({ classes }) {
-	return <Javascript alt="javascript logo" className={classes} />;
+	return <Javascript id="js_logo" alt="javascript logo" className={classes} />;
 }
 
 export function Html5Logo({ classes }) {
-	return <Html5 alt="html5 logo" className={classes} />;
+	return <Html5 id="html_log" alt="html5 logo" className={classes} />;
 }
 
 export function Css3Logo({ classes }) {
-	return <Css3 alt="css3 logo" className={classes} />;
+	return <Css3 id="css3_logo" alt="css3 logo" className={classes} />;
 }
 
 export function ReactLogo({ classes }) {
-	return <ReactL alt="react logo" className={classes} />;
+	return <ReactL id="react_logo" alt="react logo" className={classes} />;
 }
 
 export function AngularLogo({ classes }) {
-	return <Angular alt="angular logo" className={classes} />;
+	return <Angular id="angular_logo" alt="angular logo" className={classes} />;
 }
 
 export function SpringLogo({ classes }) {
-	return <Spring alt="spring logo" className={classes} />;
+	return <Spring id="spring_logo" alt="spring logo" className={classes} />;
 }
 
 export function SassLogo({ classes }) {
-	return <Sass alt="sass logo" className={classes} />;
+	return <Sass id="sass_logo" alt="sass logo" className={classes} />;
 }
 
 export function NodeLogo({ classes }) {
-	return <NodeJS alt="node logo" className={classes} />;
+	return <NodeJS id="node_logo" alt="node logo" className={classes} />;
 }
 
 export function AWSLambdaLogo({ classes }) {
-	return <AwsLambda alt="aws lambda logo" className={classes} />;
+	return <AwsLambda id="aws_lambda_logo" alt="aws lambda logo" className={classes} />;
 }
 
 export function AWSApiGatewayLogo({ classes }) {
-	return <AwsApiGateway alt="aws api gateway logo" className={classes} />;
+	return <AwsApiGateway id="aws_api_gateway_logo" alt="aws api gateway logo" className={classes} />;
 }
 
 export function AWSDynamoDBLogo({ classes }) {
-	return <AwsDynamoDB alt="aws dynamodb logo" className={classes} />;
+	return <AwsDynamoDB id="aws_dynamo_db_logo" alt="aws dynamodb logo" className={classes} />;
 }
 
 export function LinkedinLogo({ classes }) {
-	return <Linkedin alt="linkedin logo" className={classes} />;
+	return <Linkedin id="linkedin_logo" alt="linkedin logo" className={classes} />;
 }
 
 export function GithubLogo({ classes }) {
-	return <Github alt="github logo" className={classes} />;
+	return <Github id="github_logo" alt="github logo" className={classes} />;
 }
 
 export function TravisLogo({ classes }) {
-	return <Travis alt="travis logo" className={classes} />;
+	return <Travis id="travis_logo" alt="travis logo" className={classes} />;
 }

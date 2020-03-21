@@ -1,6 +1,7 @@
 <svg 
     enable-background="new 0 0 1776 2500" 
-    viewBox="0 0 1776 2500" 
+    viewBox="0 0 1776 2500"
+    id="js_svg"
     xmlns="http://www.w3.org/2000/svg">
     <path d="m1776 489.9h-1776l166.5 1805.5 721.4 204.6 721.4-204.6z" fill="#e6a329"/>
     <path d="m887.9 637v1710l584.5-165.6 142.2-1544.4z" fill="#f1bf22"/>
