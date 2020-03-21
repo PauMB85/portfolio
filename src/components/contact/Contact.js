@@ -10,7 +10,10 @@ import {
 	DialogContentText,
 	DialogTitle,
 	Slide,
-	DialogActions
+	DialogActions,
+	FormControl,
+	InputLabel,
+	Input
 } from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
 import { makeStyles } from '@material-ui/core/styles';
@@ -51,13 +54,13 @@ function Contact(props) {
 			) : null}
 
 			<Paper className="papper">
-				<form onSubmit={handleSubmit}>
+				<form onSubmit={handleSubmit} >
 					<div className="flex-column">
 						{/* fila 1 */}
 						<div className="flex-row">
 							<div className="input-contact">
 								<TextField
-									name="name"
+									id="name"
 									error={errors.name}
 									required
 									label="Name"
@@ -71,7 +74,7 @@ function Contact(props) {
 							</div>
 							<div className="input-contact">
 								<TextField
-									name="surname"
+									id="surname"
 									label="Surname"
 									placeholder="Surname"
 									variant="outlined"
@@ -84,7 +87,7 @@ function Contact(props) {
 						<div className="flex-row">
 							<div className="input-contact">
 								<TextField
-									name="mail"
+									id="mail"
 									error={errors.mail}
 									required
 									label="Mail"
@@ -101,7 +104,7 @@ function Contact(props) {
 						<div className="flex-row">
 							<div className="input-contact">
 								<TextField
-									name="subject"
+									id="subject"
 									error={errors.subject}
 									required
 									label="Title"
@@ -117,7 +120,7 @@ function Contact(props) {
 						<div className="flex-row">
 							<div className="input-contact">
 								<TextField
-									name="message"
+									id="message"
 									error={errors.message}
 									required
 									multiline
