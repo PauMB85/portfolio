@@ -11,10 +11,10 @@ function Footer(props) {
 			<Paper className="paper" variant="outlined" square>
 				<div className="flex-column">
 					<div className="social">
-						<IconButton aria-label="linkedin" href="https://www.linkedin.com/in/paumaravi/" target="_blank">
+						<IconButton aria-label="linkedin" href="https://www.linkedin.com/in/paumaravi/" target="_blank" rel="noreferrer">
 							<LinkedinLogo classes="icons" />
 						</IconButton>
-						<IconButton aria-label="github" href="https://github.com/PauMB85" target="_blank">
+						<IconButton aria-label="github" href="https://github.com/PauMB85" target="_blank" rel="noreferrer">
 							<GithubLogo classes="icons github-icon" />
 						</IconButton>
 					</div>
