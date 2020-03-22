@@ -13,7 +13,7 @@ function Home(props) {
 
 	return (
 		<div className="Home">
-			<div id="pt" className={setWebP? 'canvas webp' : 'canvas no-webp'} style={{ backgroundAttachment: isDevice ? 'auto' : 'fixed' }}>
+			<div id="pt" className={isWebp? 'canvas webp' : 'canvas no-webp'} style={{ backgroundAttachment: isDevice ? 'auto' : 'fixed' }}>
 				<canvas id="canvas"></canvas>
 			</div>
 			<div className="flex-column">
