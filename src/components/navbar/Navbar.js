@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, IconButton, Icon } from '@material-ui/core';
 import Utils from '../../utils/Utils';
 
-import logo_paumb from './../../nombre-logo-pau.png';
+import { PauMBLogo } from './../../utils/LogosSVG';
 
 import './Navbar.scss';
 
@@ -34,9 +34,10 @@ function Navbar(props) {
 		<div className="Navbar">
 			<nav id="navbar" className={'flex-row' + (isSticky ? ' nav-sticky' : '')}>
 				<IconButton className="logo" aria-label="my_brand" href="/#home">
-					<Icon className="logo">
+					<PauMBLogo className="logo" />
+					{/*<Icon className="logo">
 						<img className="logo" src={logo_paumb} alt="PauMB" />
-					</Icon>
+					</Icon>*/}
 				</IconButton>
 				<Button color="secondary" href="/#about">
 					About

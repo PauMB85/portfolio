@@ -14,6 +14,7 @@ import { ReactComponent as AwsDynamoDB } from './../img/logos/aws-dynamodb.svg';
 import { ReactComponent as Linkedin } from './../img/logos/linkedin-icon-2.svg';
 import { ReactComponent as Github } from './../img/logos/github-1.svg';
 import { ReactComponent as Travis } from './../img/logos/travis-ci.svg';
+import { ReactComponent as PauMB } from './../img/logos/nombre-logo-pau.svg';
 
 export function JavascriptLogo({ classes }) {
 	return <Javascript id="js_logo" alt="javascript logo" className={classes} />;
@@ -69,4 +70,8 @@ export function GithubLogo({ classes }) {
 
 export function TravisLogo({ classes }) {
 	return <Travis id="travis_logo" alt="travis logo" className={classes} />;
+}
+
+export function PauMBLogo({ classes }) {
+	return <PauMB id="paumb_logo" alt="paumb logo" className={classes} />;
 }

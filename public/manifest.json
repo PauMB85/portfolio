@@ -3,22 +3,22 @@
   "name": "Portfolio Pau Maravi Busquets",
   "icons": [
     {
-      "src": "nombre-logo-pau.png",
+      "src": "nombre-logo-pau.svg",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "iimage/png"
     },
     {
-      "src": "nombre-logo-pau.png",
+      "src": "nombre-logo-pau.svg",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "nombre-logo-pau.png",
+      "src": "nombre-logo-pau.svg",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#000000"
