@@ -2,7 +2,8 @@ import React from "react";
 
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 
-import me from "./../../me.jpg";
+import me from './../../me.jpg';
+import meweb from './../../me.webp';
 import "./AboutMe.scss";
 
 function AboutMe(props) {
@@ -20,7 +21,11 @@ function Description() {
   return (
     <React.Fragment>
       <div className="img-element about-1">
-        <img alt="me" src={me} className="img-me" />
+        <picture>
+            <source type="image/webp" srcSet={meweb} />
+            <source type="image/jpeg" srcSet={me} />
+            <img alt="me" src={me} className="img-me" />
+        </picture>
       </div>
       <div className="text-element about-2">
         <div className="text-about">

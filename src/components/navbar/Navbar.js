@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, IconButton, Icon } from '@material-ui/core';
+import { Button, IconButton } from '@material-ui/core';
 import Utils from '../../utils/Utils';
 
 import { PauMBLogo } from './../../utils/LogosSVG';
