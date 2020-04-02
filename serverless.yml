@@ -6,21 +6,25 @@ package:
   individually: true
 
 plugins:
-  - serverless-bundle # Package our functions with Webpack
+  - serverless-bundle
+  - serverless-s3-local
   - serverless-offline
-  - serverless-dotenv-plugin # Load .env as environment variables
-
+  - serverless-dotenv-plugin
+custom:
+  s3:
+    port: 4568
+    directory: /mocks/${env:paumb_img_bucket}
 provider:
   name: aws
   runtime: nodejs10.x
   stage: dev
   region: us-east-1
   iamRoleStatements:
-    - Effect: "Allow"
+    - Effect: Allow
       Action:
-        - "ses:SendEmail"
-        - "execute-api:Invoke",
-        - "execute-api:ManageConnections"
+        - ses:SendEmail
+        - s3:ListBucket
+        - apigateway:*
       Resource: "*"
 
   environment:
@@ -29,11 +33,29 @@ provider:
     cbdmaravilla: ${env:cbdmaravilla}
 
 functions:
+  getImages:
+    handler: getImages.handler
+    events:
+      - http:
+          path: images
+          method: get
+          cors:
+            origin: '*' # <-- Specify allowed origin
+            headers: # <-- Specify allowed headers
+              - apisite
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: false
+
   sendMail:
     handler: sendMail.handler
     events:
       - http:
-          path: email/send
+          path: mail/send
           method: post
           cors:
             origin: '*' # <-- Specify allowed origin
