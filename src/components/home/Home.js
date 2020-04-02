@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Fab } from '@material-ui/core';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import Utils from '../../utils/Utils';
@@ -6,14 +6,10 @@ import './Home.scss';
 
 function Home(props) {
 	const { isDevice } = Utils();
-	const [isWebp, setWebP] = useState(true);
-
-	useEffect(() => {
-	},[]);
 
 	return (
 		<div className="Home">
-			<div id="pt" className={isWebp? 'canvas webp' : 'canvas no-webp'} style={{ backgroundAttachment: isDevice ? 'auto' : 'fixed' }}>
+			<div id="pt" className='canvas webp' style={{ backgroundAttachment: isDevice ? 'auto' : 'fixed' }}>
 				<canvas id="canvas"></canvas>
 			</div>
 			<div className="flex-column">
