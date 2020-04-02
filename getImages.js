@@ -15,7 +15,7 @@ export function handler(event, context, callback){
         const response = {
             statusCode: 200,
             headers: headers,
-            body: cacheImgs
+            body: JSON.stringify(cacheImgs)
         };
         callback(null, response);
         return;
@@ -47,7 +47,7 @@ export function handler(event, context, callback){
                 const response = {
                     statusCode: 200,
                     headers: headers,
-                    body: data
+                    body: JSON.stringify(data)
                 };
                 cacheImgs = data;
                 callback(null, response);
@@ -56,7 +56,7 @@ export function handler(event, context, callback){
                 const response = {
                     statusCode: 500,
                     headers: headers,
-                    body: { status: false }
+                    body: JSON.stringify({ status: false })
                 };
                 callback(null, response);
                 return;
@@ -65,7 +65,7 @@ export function handler(event, context, callback){
             const response = {
                 statusCode: 200,
                 headers: headers,
-                body: folders
+                body: JSON.stringify(folders)
             };
             callback(null, response);
         }
@@ -77,7 +77,6 @@ export function handler(event, context, callback){
 
     function processFiles(params){
         return callS3content(params).then(data => {
-            
             const imgs = {};
             const nameFolder = data.Prefix.slice(0, -1);
             const imgenBucket = data.Contents || [];

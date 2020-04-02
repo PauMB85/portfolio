@@ -8,6 +8,7 @@ export function handler(event, context, callback){
     const { apisite } = event.headers;
     console.log('enviorement: ', process.env['paumb_img_bucket']);
     const { mailTo, name, surname, subject, text } = JSON.parse(event.body);
+    console.log('Los parametros de entrada son: ', mailTo, name, surname, subject, text);
     const bodyMail = `Hola acabas de recibir un mail de ${name} ${surname} (${mailTo}): \n ${text}`;
     const params = {
         Destination: {
@@ -21,6 +22,7 @@ export function handler(event, context, callback){
         },
         Source: process.env[apisite]
     };
+    console.log('el objeto que enviamos al mail', params);
     ses.sendEmail(params, (error, data) => {
         //enable cors
         const headers = {
@@ -29,6 +31,7 @@ export function handler(event, context, callback){
         };
 
         if(error) {
+            console.log('Error al enviar el mail', error);
             const response = {
                 statusCode: 500,
                 headers: headers,
@@ -37,7 +40,7 @@ export function handler(event, context, callback){
             callback(null, response);
             return;
         }
-
+        console.log('OK al enviar el mail', data);
         // Return status code 200 and the newly created item
         const response = {
             statusCode: 200,

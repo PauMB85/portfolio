@@ -10,7 +10,6 @@ plugins:
   - serverless-s3-local
   - serverless-offline
   - serverless-dotenv-plugin
-
 custom:
   s3:
     port: 4568
@@ -25,6 +24,7 @@ provider:
       Action:
         - ses:SendEmail
         - s3:ListBucket
+        - apigateway:*
       Resource: "*"
 
   environment:
@@ -55,7 +55,7 @@ functions:
     handler: sendMail.handler
     events:
       - http:
-          path: email/send
+          path: mail/send
           method: post
           cors:
             origin: '*' # <-- Specify allowed origin
