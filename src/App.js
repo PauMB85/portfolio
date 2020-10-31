@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import theme from './style/muiTheme';
 import { ThemeProvider } from '@material-ui/core/styles';
-import Contact from './components/contact/Contact';
 
 import './App.scss';
 import './style/commons.scss';
-import Navbar from './components/navbar/Navbar';
-import Home from './components/home/Home';
-import AboutMe from './components/about/AboutMe';
-import Skills from './components/skills/Skills';
-import Footer from './components/footer/Footer';
+const Home = React.lazy(() => import('./components/home/Home'));
+const Navbar = React.lazy(() => import('./components/navbar/Navbar'));
+const AboutMe = React.lazy(() => import('./components/about/AboutMe'));
+const Skills = React.lazy(() => import('./components/skills/Skills'));
+const Footer = React.lazy(() => import('./components/footer/Footer'));
+const Contact = React.lazy(() => import('./components/contact/Contact'));
+
 
 function App() {
 	return (
@@ -19,24 +20,26 @@ function App() {
 			<CssBaseline />
 			<div className="overflow-wrap flex-column">
 				{/* Home */}
-				<section id="home">
-					<Home />
-				</section>
-				<Navbar />
-				{/* about me */}
-				<section id="about">
-					<AboutMe />
-				</section>
-				{/* skills */}
-				<section id="skills">
-					<Skills />
-				</section>
-				{/* contact */}
-				<section id="contact">
-					<Contact />
-				</section>
-				{/* footer */}
-				<Footer />
+				<Suspense fallback={<h2>I am loading...</h2>}>
+					<section id="home">
+						<Home />
+					</section>
+					<Navbar />
+					{/* about me */}
+					<section id="about">
+						<AboutMe />
+					</section>
+					{/* skills */}
+					<section id="skills">
+						<Skills />
+					</section>
+					{/* contact */}
+					<section id="contact">
+						<Contact />
+					</section>
+					{/* footer */}
+					<Footer />
+				</Suspense>
 			</div>
 		</ThemeProvider>
 	);
