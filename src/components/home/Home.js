@@ -25,7 +25,7 @@ function Home(props) {
 					</div>
 				</div>
 				<div className="up-down">
-					<Fab color="secondary" aria-label="down" href="/#about">
+					<Fab color="secondary" aria-label="down" href={`${process.env.PUBLIC_URL}/#about`}>
 						<ArrowDownwardIcon />
 					</Fab>
 				</div>

@@ -33,19 +33,19 @@ function Navbar(props) {
 	return (
 		<div className="Navbar">
 			<nav id="navbar" className={'flex-row' + (isSticky ? ' nav-sticky' : '')}>
-				<IconButton className="logo" aria-label="my_brand" href="/#home">
+				<IconButton className="logo" aria-label="my_brand" href={`${process.env.PUBLIC_URL}/#home`}>
 					<PauMBLogo className="logo" />
 					{/*<Icon className="logo">
 						<img className="logo" src={logo_paumb} alt="PauMB" />
 					</Icon>*/}
 				</IconButton>
-				<Button color="secondary" href="/#about">
+				<Button color="secondary" href={`${process.env.PUBLIC_URL}/#about`}>
 					About
 				</Button>
-				<Button color="secondary" href="/#skills">
+				<Button color="secondary" href={`${process.env.PUBLIC_URL}/#skills`}>
 					Skills
 				</Button>
-				<Button color="secondary" href="/#contact">
+				<Button color="secondary" href={`${process.env.PUBLIC_URL}/#contact`}>
 					Contact
 				</Button>
 			</nav>
