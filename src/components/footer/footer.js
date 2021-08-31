@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Paper, IconButton } from '@material-ui/core';
-import { LinkedinLogo, GithubLogo } from './../../utils/LogosSVG';
+import { LinkedinLogo, GithubLogo } from '../../utils/LogosSVG';
 
 import './Footer.scss';
 
