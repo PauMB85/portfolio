@@ -10,8 +10,8 @@ const Home = React.lazy(() => import('./components/home/Home'));
 const Navbar = React.lazy(() => import('./components/navbar/Navbar'));
 const AboutMe = React.lazy(() => import('./components/about/AboutMe'));
 const Skills = React.lazy(() => import('./components/skills/Skills'));
-const Footer = React.lazy(() => import('./components/footer/Footer'));
 const Contact = React.lazy(() => import('./components/contact/Contact'));
+const Footer = React.lazy(() => import('./components/footer/Footer'));
 
 
 function App() {

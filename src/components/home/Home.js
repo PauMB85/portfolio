@@ -16,7 +16,7 @@ function Home(props) {
 				<div className="text">
 					Hi!, I am <span className="hightlight">Pau Maraví</span>.
 					<br />
-					I am a software developer and development project leader.
+					I am a software engineer.
 					<br />
 					<div className="text-little">
 						I like designing and building web applications!
