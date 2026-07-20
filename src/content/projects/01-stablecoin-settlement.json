@@ -1,0 +1,39 @@
+{
+  "order": 1,
+  "kicker": {
+    "en": "freelance · live in production",
+    "es": "freelance · en producción"
+  },
+  "title": {
+    "en": "Intercompany stablecoin settlement platform",
+    "es": "Plataforma de liquidación intercompañía con stablecoins"
+  },
+  "body": {
+    "en": "Distributed payment system automating intercompany settlements with Monerium EURe on Camino Network. Two-service pipeline (ingestion + execution) decoupled via Kafka; idempotent write-first processing; state-driven transaction lifecycle; nonce-conflict resolution by partitioning topics per wallet; zero-message-loss recovery.",
+    "es": "Sistema de pagos distribuido que automatiza las liquidaciones entre empresas del grupo con Monerium EURe sobre Camino Network. Pipeline de dos servicios (ingesta y ejecución) desacoplado mediante Kafka; procesamiento idempotente write-first; ciclo de vida de la transacción dirigido por estados; resolución de conflictos de nonce particionando los topics por wallet; recuperación sin pérdida de mensajes."
+  },
+  "metrics": [
+    {
+      "value": "~15d → RT",
+      "caption": {
+        "en": "settlement time cut to near real-time",
+        "es": "tiempo de liquidación reducido a casi tiempo real"
+      }
+    },
+    {
+      "value": "400+/mo",
+      "caption": {
+        "en": "transactions processed live",
+        "es": "transacciones procesadas en producción"
+      }
+    },
+    {
+      "value": "7",
+      "caption": {
+        "en": "companies settled from one central entity",
+        "es": "empresas liquidadas desde una entidad central"
+      }
+    }
+  ],
+  "tags": ["nestjs", "kafka", "postgresql", "solidity · erc-20", "camino network", "k6"]
+}

@@ -1,0 +1,9 @@
+{
+  "order": 1,
+  "kicker": { "en": "winner", "es": "ganador" },
+  "title": "Rootstock Hackathon",
+  "body": {
+    "en": "BitChill — DCA dApp built with React.js + Ethers.js.",
+    "es": "BitChill — dApp de DCA desarrollada con React.js y Ethers.js."
+  }
+}

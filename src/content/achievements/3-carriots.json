@@ -1,0 +1,9 @@
+{
+  "order": 3,
+  "kicker": { "en": "finalist", "es": "finalista" },
+  "title": "IoT by Carriots",
+  "body": {
+    "en": "Smart Collar Pet — connected pet tracker.",
+    "es": "Smart Collar Pet — localizador conectado para mascotas."
+  }
+}

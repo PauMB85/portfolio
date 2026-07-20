@@ -1,0 +1,16 @@
+{
+  "order": 3,
+  "period": {
+    "en": "apr 2017 — jul 2021",
+    "es": "abr 2017 — jul 2021"
+  },
+  "role": {
+    "en": "Software Engineer",
+    "es": "Ingeniero de software"
+  },
+  "company": "Babel SI",
+  "summary": {
+    "en": "Financial platforms and payment features for Bankia (RoboAdvisor, PayPal integration) and Santander Consumer. Spring Boot + React.js.",
+    "es": "Plataformas financieras y funcionalidades de pago para Bankia (RoboAdvisor, integración con PayPal) y Santander Consumer. Spring Boot y React.js."
+  }
+}

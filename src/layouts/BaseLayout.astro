@@ -1,0 +1,126 @@
+---
+import { getAbsoluteLocaleUrl } from 'astro:i18n';
+import '../styles/styles.css';
+import { SITE } from '../data/site';
+import { t } from '../i18n/ui';
+import { withBase, LOCALES, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const ui = t(locale);
+
+// `Astro.site` incluye el dominio; `Astro.url.pathname` ya trae el base.
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL(withBase('/assets/og-image.png'), Astro.site).href;
+
+// x-default apunta al router de idioma, que es exactamente el caso de uso que
+// Google documenta para esta anotación: una página de selección de idioma.
+const xDefault = new URL(withBase('/'), Astro.site).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: SITE.name,
+  url: xDefault,
+  jobTitle: locale === 'es' ? 'Desarrollador full-stack' : 'Full-stack developer',
+  description: ui.meta.description,
+  email: `mailto:${SITE.email}`,
+  telephone: SITE.phone,
+  address: {
+    '@type': 'PostalAddress',
+    addressRegion: SITE.location.region,
+    addressCountry: SITE.location.country,
+  },
+  knowsAbout: [
+    'Artificial Intelligence',
+    'Blockchain',
+    'Smart Contracts',
+    'Stablecoin payments',
+    'NestJS',
+    'Kafka',
+    'Solidity',
+    'PostgreSQL',
+  ],
+  sameAs: [SITE.linkedin, SITE.github],
+};
+---
+
+<!doctype html>
+<html lang={ui.htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{ui.meta.title}</title>
+    <meta name="description" content={ui.meta.description} />
+    <link rel="canonical" href={canonical} />
+
+    {/* hreflang recíproco: cada versión declara a todas, incluida a sí misma.
+        Si la reciprocidad falla, Google ignora el conjunto entero. */}
+    {
+      LOCALES.map((l) => (
+        <link rel="alternate" hreflang={l} href={getAbsoluteLocaleUrl(l)} />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href={xDefault} />
+
+    <link rel="icon" type="image/svg+xml" href={withBase('/assets/icon.svg')} />
+    <link rel="apple-touch-icon" href={withBase('/assets/icon-512.png')} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={ui.meta.title} />
+    <meta property="og:description" content={ui.meta.description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={locale === 'es' ? 'es_ES' : 'en_US'} />
+    <meta property="og:locale:alternate" content={locale === 'es' ? 'en_US' : 'es_ES'} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ui.meta.title} />
+    <meta name="twitter:description" content={ui.meta.description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <meta name="theme-color" content="#14110c" />
+
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+
+  <body>
+    <a class="skip" href="#main">{ui.skipToContent}</a>
+    <slot />
+  </body>
+</html>
+
+<style>
+  body {
+    margin: 0;
+    background: var(--surface-page);
+    color: var(--text-body);
+    min-height: 100vh;
+  }
+
+  /* Enlace de salto: invisible hasta que recibe foco de teclado. */
+  .skip {
+    position: absolute;
+    left: -9999px;
+    font-family: var(--font-brand);
+    font-size: var(--text-sm);
+  }
+
+  .skip:focus {
+    left: var(--space-5);
+    top: var(--space-5);
+    z-index: 10;
+    background: var(--bg-0);
+    color: var(--accent);
+    padding: var(--space-3) var(--space-4);
+    outline: var(--border-strong) solid var(--accent);
+  }
+</style>

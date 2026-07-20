@@ -1,0 +1,9 @@
+{
+  "order": 2,
+  "kicker": { "en": "finalist", "es": "finalista" },
+  "title": "Actúa UPM",
+  "body": {
+    "en": "PassTicket — ticket management platform.",
+    "es": "PassTicket — plataforma de gestión de entradas."
+  }
+}

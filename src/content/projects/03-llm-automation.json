@@ -1,0 +1,16 @@
+{
+  "order": 3,
+  "kicker": {
+    "en": "ai automation",
+    "es": "automatización con ia"
+  },
+  "title": {
+    "en": "LLM-powered automation microservices",
+    "es": "Microservicios de automatización con LLM"
+  },
+  "body": {
+    "en": "Email ingestion with structured LLM extraction, invoice parsing (PDF → Kafka → LLM → ERP), and enriched suggestion APIs.",
+    "es": "Ingesta de correo con extracción estructurada mediante LLM, procesamiento de facturas (PDF → Kafka → LLM → ERP) y APIs de sugerencias enriquecidas."
+  },
+  "tags": ["openai api", "langchain", "fastapi"]
+}

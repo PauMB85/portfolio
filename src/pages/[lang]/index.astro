@@ -1,0 +1,232 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Nav from '../../components/Nav.astro';
+import Hero from '../../components/Hero.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import MetricRow from '../../components/MetricRow.astro';
+import TagList from '../../components/TagList.astro';
+import ExperienceRow from '../../components/ExperienceRow.astro';
+import SkillGroup from '../../components/SkillGroup.astro';
+import Cursor from '../../components/Cursor.astro';
+import Button from '../../components/Button.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE, SKILL_GROUPS } from '../../data/site';
+import { t } from '../../i18n/ui';
+import { LOCALES, type Locale } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  // Una sola plantilla genera /en/ y /es/. Evita mantener dos ficheros gemelos.
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const locale = Astro.params.lang as Locale;
+const ui = t(locale);
+
+const byOrder = (a: { data: { order: number } }, b: { data: { order: number } }) =>
+  a.data.order - b.data.order;
+
+const projects = (await getCollection('projects')).sort(byOrder);
+const experience = (await getCollection('experience')).sort(byOrder);
+const achievements = (await getCollection('achievements')).sort(byOrder);
+
+// La tarjeta destacada y las compactas se separan aquí, en la página.
+// La distinción es de composición, no una prop booleana de ProjectCard.
+const [featured, ...compact] = projects;
+---
+
+<BaseLayout locale={locale}>
+  <Nav locale={locale} />
+
+  <main id="main">
+    <Hero locale={locale} />
+
+    <section id="work" class="section" aria-labelledby="h-work">
+      <SectionHeader label={ui.sections.work} headingId="h-work" />
+
+      <div class="work-grid">
+        <ProjectCard
+          variant="featured"
+          order={featured.data.order}
+          kicker={featured.data.kicker[locale]}
+          title={featured.data.title[locale]}
+          body={featured.data.body[locale]}
+        >
+          {
+            featured.data.metrics && (
+              <MetricRow
+                slot="metrics"
+                metrics={featured.data.metrics.map((m) => ({
+                  value: m.value,
+                  caption: m.caption[locale],
+                }))}
+              />
+            )
+          }
+          <TagList slot="tags" tags={featured.data.tags} variant="muted" />
+        </ProjectCard>
+
+        <div class="work-column">
+          {
+            compact.map((p) => (
+              <ProjectCard
+                variant="compact"
+                order={p.data.order}
+                kicker={p.data.kicker[locale]}
+                title={p.data.title[locale]}
+                body={p.data.body[locale]}
+              >
+                <TagList slot="tags" tags={p.data.tags} variant="muted" />
+              </ProjectCard>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section" aria-labelledby="h-experience">
+      <SectionHeader label={ui.sections.experience} headingId="h-experience" />
+      {
+        experience.map((job) => (
+          <ExperienceRow
+            period={job.data.period[locale]}
+            role={job.data.role[locale]}
+            company={job.data.company}
+            summary={job.data.summary[locale]}
+          />
+        ))
+      }
+    </section>
+
+    <section id="skills" class="section" aria-labelledby="h-skills">
+      <SectionHeader label={ui.sections.skills} headingId="h-skills" />
+      <div class="skills-grid">
+        {SKILL_GROUPS.map((g) => <SkillGroup label={ui.skills[g.id]} items={g.items} />)}
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="h-achievements">
+      <SectionHeader label={ui.sections.achievements} headingId="h-achievements" />
+      <div class="achievements-grid">
+        {
+          achievements.map((a) => (
+            <article class="card">
+              <p class="card-kicker">// {a.data.kicker[locale]}</p>
+              <h3 class="card-title achievement-title">{a.data.title}</h3>
+              <p class="card-body">{a.data.body[locale]}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section id="contact" class="section contact" aria-labelledby="h-contact">
+      <SectionHeader label={ui.sections.contact} headingId="h-contact" />
+      <h3 class="contact-heading">{ui.contact.heading}<Cursor /></h3>
+      <p class="contact-lead">{ui.contact.lead}</p>
+
+      <div class="contact-actions">
+        <Button variant="primary" href={`mailto:${SITE.email}`}>{SITE.email}</Button>
+        <Button variant="ghost" href={SITE.linkedin}>linkedin</Button>
+        <Button variant="ghost" href={SITE.github}>github</Button>
+      </div>
+
+      <p class="contact-meta">
+        {ui.contact.location} · <a href={`tel:${SITE.phone.replace(/\s/g, '')}`}>{SITE.phone}</a> ·
+        {ui.contact.languages}
+      </p>
+    </section>
+  </main>
+
+  <Footer locale={locale} />
+</BaseLayout>
+
+<style>
+  .section {
+    padding: 0 var(--space-8) 90px;
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: var(--space-5);
+  }
+
+  .work-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-5);
+  }
+
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+  }
+
+  .achievement-title {
+    font-size: var(--text-md);
+  }
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    max-width: 720px;
+    padding-bottom: 110px;
+  }
+
+  .contact-heading {
+    font-size: var(--text-2xl);
+  }
+
+  .contact-heading :global(.cursor) {
+    margin-left: 10px;
+  }
+
+  .contact-lead {
+    font-size: var(--text-md);
+    color: var(--text-muted);
+    line-height: var(--leading-body);
+    margin: 0;
+  }
+
+  .contact-actions {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .contact-meta {
+    font-family: var(--font-brand);
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .contact-meta a {
+    color: inherit;
+  }
+
+  @media (max-width: 900px) {
+    .work-grid,
+    .skills-grid,
+    .achievements-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .section {
+      padding: 0 var(--space-5) var(--space-7);
+    }
+  }
+</style>

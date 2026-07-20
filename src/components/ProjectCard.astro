@@ -1,0 +1,58 @@
+---
+interface Props {
+  /** Número de orden; el componente lo formatea a "01", "02"... */
+  order: number;
+  /** Kicker sin el "// NN · ": lo compone el componente. */
+  kicker: string;
+  title: string;
+  body: string;
+  /**
+   * Variante explícita por string. `featured` es la tarjeta ancha con titular
+   * mayor; `compact` las de la columna estrecha. Nada de props booleanas
+   * tipo `large` o `withMetrics`.
+   */
+  variant: 'featured' | 'compact';
+}
+
+const { order, kicker, title, body, variant } = Astro.props;
+const num = String(order).padStart(2, '0');
+---
+
+{
+  /* Las métricas y los tags entran por slots con nombre. Una tarjeta sin
+     métricas simplemente no rellena ese slot: es composición, no una prop
+     `hasMetrics`. */
+}
+<article class:list={['card', 'project', variant]}>
+  <p class="card-kicker">// {num} · {kicker}</p>
+  <h3 class="card-title">{title}</h3>
+  <p class="card-body">{body}</p>
+  <slot name="metrics" />
+  <slot name="tags" />
+</article>
+
+<style>
+  .project {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .card-kicker,
+  .card-title,
+  .card-body {
+    margin: 0;
+  }
+
+  .featured .card-title {
+    font-size: var(--text-xl);
+  }
+
+  .compact {
+    flex: 1;
+  }
+
+  .card-body {
+    text-wrap: pretty;
+  }
+</style>

@@ -1,0 +1,28 @@
+---
+/**
+ * El motivo de marca: bloque dorado con glow que cierra una línea.
+ * Regla del design system: uno solo por vista.
+ */
+---
+
+<span class="cursor" aria-hidden="true"></span>
+
+<style>
+  /* El parpadeo es opcional según el handoff. Se apaga si el usuario
+     ha pedido menos movimiento. */
+  @media (prefers-reduced-motion: no-preference) {
+    .cursor {
+      animation: blink 1.1s step-end infinite;
+    }
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+</style>

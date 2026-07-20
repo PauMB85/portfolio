@@ -1,0 +1,16 @@
+{
+  "order": 2,
+  "kicker": {
+    "en": "travel platform",
+    "es": "plataforma de viajes"
+  },
+  "title": {
+    "en": "Stablecoin payments for travel services",
+    "es": "Pagos con stablecoins para servicios de viaje"
+  },
+  "body": {
+    "en": "End-to-end payment lifecycle for hotels, transfers and accommodations — booking to on-chain settlement. Transaction orchestration, multi-provider state tracking, smart-contract settlement.",
+    "es": "Ciclo de pago completo para hoteles, traslados y alojamientos — de la reserva a la liquidación on-chain. Orquestación de transacciones, seguimiento de estado multiproveedor y liquidación por smart contract."
+  },
+  "tags": ["web3.js", "mongodb", "elasticsearch"]
+}

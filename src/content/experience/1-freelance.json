@@ -1,0 +1,16 @@
+{
+  "order": 1,
+  "period": {
+    "en": "nov 2022 — present",
+    "es": "nov 2022 — actualidad"
+  },
+  "role": {
+    "en": "Software Engineer",
+    "es": "Ingeniero de software"
+  },
+  "company": "Freelance",
+  "summary": {
+    "en": "Stablecoin settlement platforms, travel payment systems and LLM automation microservices — architecture to production. NestJS, Kafka, PostgreSQL, Solidity.",
+    "es": "Plataformas de liquidación con stablecoins, sistemas de pago para viajes y microservicios de automatización con LLM — de la arquitectura a producción. NestJS, Kafka, PostgreSQL, Solidity."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "order": 4,
+  "period": {
+    "en": "jul 2015 — apr 2017",
+    "es": "jul 2015 — abr 2017"
+  },
+  "role": {
+    "en": "Software Engineer",
+    "es": "Ingeniero de software"
+  },
+  "company": "SoftTelecom",
+  "summary": {
+    "en": "Data-intensive backend systems for Telefónica (Elasticsearch, Logstash, Spring Boot); built Wan2Cloud provisioning app.",
+    "es": "Sistemas backend intensivos en datos para Telefónica (Elasticsearch, Logstash, Spring Boot); desarrollo de Wan2Cloud, una aplicación de aprovisionamiento."
+  }
+}

@@ -1,0 +1,84 @@
+---
+import Button from './Button.astro';
+import Cursor from './Cursor.astro';
+import { SITE } from '../data/site';
+import { t } from '../i18n/ui';
+import type { Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const ui = t(locale);
+---
+
+<header class="hero">
+  <h1>
+    <span class="muted">{ui.hero.line1}</span><br />
+    <span class="muted">{ui.hero.line2}</span><br />
+    <span class="accent">{ui.hero.line3}</span><Cursor />
+  </h1>
+
+  <p class="lead">{ui.hero.lead}</p>
+
+  <div class="actions">
+    <Button variant="primary" href={`mailto:${SITE.email}`}>{ui.hero.primary}</Button>
+    <Button variant="ghost" href="#work">{ui.hero.ghost}</Button>
+  </div>
+</header>
+
+<style>
+  .hero {
+    padding: 110px var(--space-8) 90px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    max-width: 1000px;
+  }
+
+  h1 {
+    font-size: var(--text-3xl);
+    line-height: 1.25;
+    text-wrap: pretty;
+  }
+
+  .muted {
+    color: var(--text-muted);
+  }
+
+  .accent {
+    color: var(--accent);
+  }
+
+  /* El cursor va pegado a la última línea, con un respiro. */
+  h1 :global(.cursor) {
+    margin-left: 12px;
+  }
+
+  .lead {
+    font-size: var(--text-lg);
+    color: var(--text-muted);
+    line-height: var(--leading-body);
+    max-width: 680px;
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  .actions {
+    display: flex;
+    gap: var(--space-4);
+    margin-top: var(--space-2);
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 720px) {
+    .hero {
+      padding: var(--space-8) var(--space-5) var(--space-7);
+    }
+
+    h1 {
+      font-size: var(--text-2xl);
+    }
+  }
+</style>

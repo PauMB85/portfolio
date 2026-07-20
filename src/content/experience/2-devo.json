@@ -1,0 +1,16 @@
+{
+  "order": 2,
+  "period": {
+    "en": "jul 2021 — nov 2022",
+    "es": "jul 2021 — nov 2022"
+  },
+  "role": {
+    "en": "Software Engineer",
+    "es": "Ingeniero de software"
+  },
+  "company": "Devo",
+  "summary": {
+    "en": "Built Activeboards, a real-time data monitoring module (React.js, RxJS); performance optimizations for large-scale dashboards.",
+    "es": "Desarrollo de Activeboards, un módulo de monitorización de datos en tiempo real (React.js, RxJS); optimización de rendimiento para cuadros de mando a gran escala."
+  }
+}
