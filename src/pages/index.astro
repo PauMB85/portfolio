@@ -1,0 +1,70 @@
+---
+// TEMPORAL — página de humo de la Fase 1.
+// En la Fase 3 este fichero se convierte en el router x-default:
+// detecta navigator.language y navega a /en/ o /es/, con enlaces
+// visibles como fallback sin JavaScript.
+import '../styles/styles.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/assets/icon.svg" />
+    <meta name="robots" content="noindex" />
+    <title>fase 1 — comprobación del design system</title>
+    <style>
+      body { margin: 0; background: var(--surface-page); }
+      main { padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-6); max-width: 900px; }
+      .row { display: flex; gap: var(--space-4); align-items: center; flex-wrap: wrap; }
+      .swatches { display: flex; gap: 0; }
+      .sw { width: 56px; height: 56px; }
+      .label { font-family: var(--font-brand); font-size: var(--text-xs); letter-spacing: var(--tracking-label); color: var(--accent); }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav-brand"><span class="tilde">~/</span>pau<span class="ext">.h</span></div>
+      <div class="nav-links"><a href="/en/">en</a><a href="/es/">es</a></div>
+    </nav>
+
+    <main>
+      <div class="label">// fase 1 · scaffold verificado</div>
+
+      <h1 style="font-size: var(--text-2xl);">
+        Design system cargado<span class="cursor" style="margin-left: 12px;"></span>
+      </h1>
+
+      <p style="color: var(--text-muted); line-height: var(--leading-body); max-width: 620px; margin: 0;">
+        Si esta línea se ve en Instrument Sans y el titular en JetBrains Mono, las
+        fuentes autoalojadas funcionan. Los colores salen de los tokens, no de literales.
+      </p>
+
+      <div class="row">
+        <a class="btn btn-primary" href="#"><span class="prompt">$</span> primary</a>
+        <a class="btn btn-ghost" href="#"><span class="prompt">$</span> ghost</a>
+        <span class="tag">tag</span>
+        <span class="tag tag-solid">solid</span>
+        <span class="tag tag-muted">muted</span>
+      </div>
+
+      <div class="swatches">
+        <div class="sw" style="background: var(--gold-100);"></div>
+        <div class="sw" style="background: var(--gold-200);"></div>
+        <div class="sw" style="background: var(--gold-300);"></div>
+        <div class="sw" style="background: var(--gold-400);"></div>
+        <div class="sw" style="background: var(--gold-500);"></div>
+        <div class="sw" style="background: var(--gold-600);"></div>
+        <div class="sw" style="background: var(--gold-700);"></div>
+        <div class="sw" style="background: var(--gold-800);"></div>
+        <div class="sw" style="background: var(--gold-900);"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-kicker">// card</div>
+        <h3 class="card-title">Componente de tarjeta</h3>
+        <p class="card-body">Radio 0, borde de 1px con <code>--line</code>, fondo <code>--surface-card</code>.</p>
+      </div>
+    </main>
+  </body>
+</html>

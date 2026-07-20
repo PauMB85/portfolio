@@ -1,0 +1,9 @@
+/* Fuentes autoalojadas — sustituyen al @import de Google Fonts del handoff.
+   Solo el eje wght normal: el diseño no usa cursivas. */
+@import "@fontsource-variable/jetbrains-mono/wght.css";
+@import "@fontsource-variable/instrument-sans/wght.css";
+
+@import "tokens/colors.css";
+@import "tokens/typography.css";
+@import "tokens/spacing.css";
+@import "components.css";

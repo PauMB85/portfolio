@@ -1,0 +1,19 @@
+/* Fuentes autoalojadas (fontsource). Variables: un solo fichero cubre 400–700.
+   Se cargan desde styles.css; aquí solo se declaran los tokens. */
+:root {
+  /* El sufijo "Variable" es el nombre real de la familia que declara fontsource;
+     la versión estática queda como fallback si alguien sirve el CSS sin el paquete. */
+  --font-brand: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, monospace; /* logo, headings, code, labels */
+  --font-body: "Instrument Sans Variable", "Instrument Sans", system-ui, sans-serif;  /* paragraphs, UI copy */
+  --text-xs: 12px; --text-sm: 14px; --text-md: 16px; --text-lg: 20px;
+  --text-xl: 28px; --text-2xl: 40px; --text-3xl: 56px;
+  --leading-tight: 1.1; --leading-body: 1.6;
+  --tracking-label: 0.14em;
+}
+body { font-family: var(--font-body); color: var(--text-body); background: var(--surface-page); }
+h1, h2, h3, h4 { font-family: var(--font-brand); font-weight: 600; line-height: var(--leading-tight); margin: 0; }
+code, .mono { font-family: var(--font-brand); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--gold-200); text-decoration: underline; }
+[data-theme="light"] a:hover { color: var(--gold-800); }
+::selection { background: var(--gold-500); color: var(--bg-0); }

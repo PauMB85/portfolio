@@ -1,0 +1,41 @@
+:root {
+  /* Grounds — warm blacks */
+  --bg-0: #0f0d09;
+  --bg-1: #14110c;
+  --bg-2: #1c1812;
+  --line: #2e2716;
+  /* Creams */
+  --cream-0: #f6f2e8;
+  --cream-1: #e9e2d0;
+  /* Gold ramp (Clio Williams gold) */
+  --gold-100: #fff3cf;
+  --gold-200: #ffe9a8;
+  --gold-300: #f0c96a;
+  --gold-400: #dcb14c;
+  --gold-500: #c8992e;
+  --gold-600: #b0821f;
+  --gold-700: #9a7118;
+  --gold-800: #8a6414;
+  --gold-900: #5f470e;
+  /* Semantic (dark theme = default) */
+  --surface-page: var(--bg-1);
+  --surface-card: var(--bg-2);
+  --text-body: var(--cream-0);
+  --text-muted: #b3a98f;
+  --accent: var(--gold-300);
+  --accent-strong: var(--gold-500);
+  --accent-deep: var(--gold-800);
+  --glow: 0 0 14px rgba(240, 201, 106, 0.45);
+}
+/* Light theme — invoices, quotes, print */
+[data-theme="light"] {
+  --surface-page: #ffffff;
+  --surface-card: #f6f2e8;
+  --line: #e2d9c2;
+  --text-body: #241c10;
+  --text-muted: #7a6f56;
+  --accent: var(--gold-600);
+  --accent-strong: var(--gold-700);
+  --accent-deep: var(--gold-900);
+  --glow: none;
+}
