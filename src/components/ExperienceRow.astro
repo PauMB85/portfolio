@@ -3,19 +3,27 @@ interface Props {
   period: string;
   role: string;
   company: string;
-  summary: string;
+  /** Qué se resolvió. Va en acento: es la línea que se escanea. */
+  impact: string;
+  /** El cómo: stack, contexto y alcance. */
+  detail: string;
 }
 
-const { period, role, company, summary } = Astro.props;
+const { period, role, company, impact, detail } = Astro.props;
 ---
 
 <article class="row">
   <p class="period">{period}</p>
+
   <div>
-    <h3 class="role">{role}</h3>
-    <p class="company">{company}</p>
+    <h3 class="company">{company}</h3>
+    <p class="role">{role}</p>
   </div>
-  <p class="summary">{summary}</p>
+
+  <div class="body">
+    <p class="impact">{impact}</p>
+    <p class="detail">{detail}</p>
+  </div>
 </article>
 
 <style>
@@ -38,18 +46,34 @@ const { period, role, company, summary } = Astro.props;
     color: var(--text-muted);
   }
 
-  .role {
+  /* La empresa manda en la columna; el cargo la matiza debajo. */
+  .company {
     font-family: var(--font-brand);
     font-size: var(--text-md);
     font-weight: 600;
   }
 
-  .company {
-    font-size: var(--text-sm);
+  .role {
+    font-family: var(--font-brand);
+    font-size: var(--text-xs);
     color: var(--accent);
+    margin-top: var(--space-1);
   }
 
-  .summary {
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .impact {
+    font-size: var(--text-md);
+    color: var(--text-body);
+    line-height: var(--leading-body);
+    text-wrap: pretty;
+  }
+
+  .detail {
     font-size: var(--text-sm);
     color: var(--text-muted);
     line-height: var(--leading-body);
@@ -59,7 +83,7 @@ const { period, role, company, summary } = Astro.props;
   @media (max-width: 900px) {
     .row {
       grid-template-columns: 1fr;
-      gap: var(--space-2);
+      gap: var(--space-3);
     }
   }
 </style>

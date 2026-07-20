@@ -5,12 +5,16 @@
     "es": "jul 2015 — abr 2017"
   },
   "role": {
-    "en": "Software Engineer",
-    "es": "Ingeniero de software"
+    "en": "Full-stack developer",
+    "es": "Desarrollador full-stack"
   },
   "company": "SoftTelecom",
-  "summary": {
-    "en": "Data-intensive backend systems for Telefónica (Elasticsearch, Logstash, Spring Boot); built Wan2Cloud provisioning app.",
-    "es": "Sistemas backend intensivos en datos para Telefónica (Elasticsearch, Logstash, Spring Boot); desarrollo de Wan2Cloud, una aplicación de aprovisionamiento."
+  "impact": {
+    "en": "~9 GB of data a day processed for Telefónica.",
+    "es": "~9 GB de datos al día procesados para Telefónica."
+  },
+  "detail": {
+    "en": "Data pipelines with Elasticsearch and Logstash on Spring Boot, plus Wan2Cloud, the provisioning app.",
+    "es": "Pipelines de datos con Elasticsearch y Logstash sobre Spring Boot, y Wan2Cloud, la aplicación de aprovisionamiento."
   }
 }

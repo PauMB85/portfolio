@@ -47,10 +47,14 @@ const experience = defineCollection({
     order: z.number().int().positive(),
     /** Traducible: "nov 2022 — present" / "nov 2022 — actualidad". */
     period: localized,
+    /** El cargo real de cada etapa: se lee la progresión frontend → team leader. */
     role: localized,
     /** Nombre propio: no se traduce. */
     company: z.string(),
-    summary: localized,
+    /** Qué resolviste. Una frase, en acento: es lo que se escanea. */
+    impact: localized,
+    /** El cómo: stack, contexto y alcance. En muted, debajo. */
+    detail: localized,
   }),
 });
 

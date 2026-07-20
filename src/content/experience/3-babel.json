@@ -5,12 +5,16 @@
     "es": "abr 2017 — jul 2021"
   },
   "role": {
-    "en": "Software Engineer",
-    "es": "Ingeniero de software"
+    "en": "Full-stack → Team Leader",
+    "es": "Full-stack → Team Leader"
   },
   "company": "Babel SI",
-  "summary": {
-    "en": "Financial platforms and payment features for Bankia (RoboAdvisor, PayPal integration) and Santander Consumer. Spring Boot + React.js.",
-    "es": "Plataformas financieras y funcionalidades de pago para Bankia (RoboAdvisor, integración con PayPal) y Santander Consumer. Spring Boot y React.js."
+  "impact": {
+    "en": "Went from building features to leading a team of 6.",
+    "es": "Pasé de desarrollar funcionalidades a liderar un equipo de 6 personas."
+  },
+  "detail": {
+    "en": "Financial platforms and payment features for Bankia and Santander Consumer with Spring Boot and React.js. Mentoring the team's junior developers.",
+    "es": "Plataformas financieras y funcionalidades de pago para Bankia y Santander Consumer con Spring Boot y React.js. Formación de los perfiles junior del equipo."
   }
 }
