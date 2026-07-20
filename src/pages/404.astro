@@ -1,6 +1,8 @@
 ---
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import '../styles/styles.css';
+import PrimaryButton from '../components/PrimaryButton.astro';
+import GhostButton from '../components/GhostButton.astro';
 import { SITE } from '../data/site';
 import { withBase } from '../i18n/utils';
 ---
@@ -22,12 +24,8 @@ import { withBase } from '../i18n/utils';
       <h1>No such file or directory</h1>
       <p class="lead">Esta ruta no existe. / This path does not exist.</p>
       <div class="links">
-        <a class="btn btn-primary" href={getRelativeLocaleUrl('en')}
-          ><span class="prompt" aria-hidden="true">$</span> cd ~/en</a
-        >
-        <a class="btn btn-ghost" href={getRelativeLocaleUrl('es')}
-          ><span class="prompt" aria-hidden="true">$</span> cd ~/es</a
-        >
+        <PrimaryButton href={getRelativeLocaleUrl('en')}>cd ~/en</PrimaryButton>
+        <GhostButton href={getRelativeLocaleUrl('es')}>cd ~/es</GhostButton>
       </div>
     </main>
   </body>

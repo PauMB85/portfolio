@@ -1,0 +1,29 @@
+---
+interface Props {
+  /** "winner" / "ganador". El "//" lo pone el componente. */
+  kicker: string;
+  title: string;
+  body: string;
+}
+
+const { kicker, title, body } = Astro.props;
+---
+
+<article class="card">
+  <p class="card-kicker">// {kicker}</p>
+  <h3 class="card-title">{title}</h3>
+  <p class="card-body">{body}</p>
+</article>
+
+<style>
+  .card-kicker,
+  .card-body {
+    margin: 0;
+  }
+
+  /* Más pequeño que el de proyecto: son nombres de evento, no titulares. */
+  .card-title {
+    font-size: var(--text-md);
+    margin-bottom: var(--space-3);
+  }
+</style>

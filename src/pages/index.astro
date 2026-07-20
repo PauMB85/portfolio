@@ -1,6 +1,8 @@
 ---
 import { getRelativeLocaleUrl, getAbsoluteLocaleUrl } from 'astro:i18n';
 import '../styles/styles.css';
+import PrimaryButton from '../components/PrimaryButton.astro';
+import GhostButton from '../components/GhostButton.astro';
 import { SITE } from '../data/site';
 import { withBase, LOCALES } from '../i18n/utils';
 
@@ -69,10 +71,8 @@ const routerScript = `
       <h1 class="prompt-line">// choose a language · elige idioma</h1>
 
       <div class="links">
-        <a class="btn btn-primary" href={en}><span class="prompt" aria-hidden="true">$</span> english</a>
-        <a class="btn btn-ghost" href={es} lang="es"
-          ><span class="prompt" aria-hidden="true">$</span> castellano</a
-        >
+        <PrimaryButton href={en}>english</PrimaryButton>
+        <GhostButton href={es} lang="es">castellano</GhostButton>
       </div>
     </main>
   </body>

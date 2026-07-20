@@ -1,0 +1,13 @@
+---
+import ButtonBase from './ButtonBase.astro';
+
+interface Props {
+  href: string;
+  /** Idioma de la etiqueta, si difiere del de la página. */
+  lang?: string;
+}
+
+const { href, lang } = Astro.props;
+---
+
+<ButtonBase href={href} lang={lang} class="btn-ghost"><slot /></ButtonBase>

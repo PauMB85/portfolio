@@ -1,0 +1,35 @@
+---
+/**
+ * Interno. No se usa desde las páginas: consúmelo a través de
+ * <PrimaryButton> o <GhostButton>, que son la API pública.
+ *
+ * Existe para no duplicar el prefijo "$" ni la detección de enlace externo
+ * en cada variante.
+ */
+interface Props {
+  href: string;
+  /** Clase de variante de components.css (.btn-primary, .btn-ghost). */
+  class: string;
+  /**
+   * Idioma de la etiqueta, cuando difiere del de la página. Necesario para que
+   * un lector de pantalla no pronuncie "castellano" con fonética inglesa.
+   */
+  lang?: string;
+}
+
+const { href, class: variantClass, lang } = Astro.props;
+
+// El destino externo se deduce del href en vez de con una prop booleana:
+// un dato que ya está en el href no debería repetirse.
+const isExternal = /^https?:\/\//.test(href);
+---
+
+<a
+  class:list={['btn', variantClass]}
+  href={href}
+  lang={lang}
+  {...isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {}}
+>
+  <span class="prompt" aria-hidden="true">$</span>
+  <slot />
+</a>

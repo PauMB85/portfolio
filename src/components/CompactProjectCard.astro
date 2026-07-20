@@ -1,0 +1,17 @@
+---
+import ProjectCardBase from './ProjectCardBase.astro';
+
+/** La tarjeta estrecha de la columna lateral: crece para igualar alturas. */
+interface Props {
+  order: number;
+  kicker: string;
+  title: string;
+  body: string;
+}
+
+const { order, kicker, title, body } = Astro.props;
+---
+
+<ProjectCardBase order={order} kicker={kicker} title={title} body={body} class="compact">
+  <slot name="tags" slot="tags" />
+</ProjectCardBase>

@@ -1,0 +1,18 @@
+---
+import ProjectCardBase from './ProjectCardBase.astro';
+
+/** La tarjeta ancha de la columna principal: titular mayor y sitio para métricas. */
+interface Props {
+  order: number;
+  kicker: string;
+  title: string;
+  body: string;
+}
+
+const { order, kicker, title, body } = Astro.props;
+---
+
+<ProjectCardBase order={order} kicker={kicker} title={title} body={body} class="featured">
+  <slot name="metrics" slot="metrics" />
+  <slot name="tags" slot="tags" />
+</ProjectCardBase>

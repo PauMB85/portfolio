@@ -1,5 +1,6 @@
 ---
-import Button from './Button.astro';
+import PrimaryButton from './PrimaryButton.astro';
+import GhostButton from './GhostButton.astro';
 import Cursor from './Cursor.astro';
 import { SITE } from '../data/site';
 import { t } from '../i18n/ui';
@@ -23,8 +24,8 @@ const ui = t(locale);
   <p class="lead">{ui.hero.lead}</p>
 
   <div class="actions">
-    <Button variant="primary" href={`mailto:${SITE.email}`}>{ui.hero.primary}</Button>
-    <Button variant="ghost" href="#work">{ui.hero.ghost}</Button>
+    <PrimaryButton href={`mailto:${SITE.email}`}>{ui.hero.primary}</PrimaryButton>
+    <GhostButton href="#work">{ui.hero.ghost}</GhostButton>
   </div>
 </header>
 

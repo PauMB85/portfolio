@@ -4,13 +4,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Nav from '../../components/Nav.astro';
 import Hero from '../../components/Hero.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
-import ProjectCard from '../../components/ProjectCard.astro';
+import FeaturedProjectCard from '../../components/FeaturedProjectCard.astro';
+import CompactProjectCard from '../../components/CompactProjectCard.astro';
+import AchievementCard from '../../components/AchievementCard.astro';
 import MetricRow from '../../components/MetricRow.astro';
-import TagList from '../../components/TagList.astro';
+import MutedTagList from '../../components/MutedTagList.astro';
 import ExperienceRow from '../../components/ExperienceRow.astro';
 import SkillGroup from '../../components/SkillGroup.astro';
 import Cursor from '../../components/Cursor.astro';
-import Button from '../../components/Button.astro';
+import PrimaryButton from '../../components/PrimaryButton.astro';
+import GhostButton from '../../components/GhostButton.astro';
 import Footer from '../../components/Footer.astro';
 import { SITE, SKILL_GROUPS } from '../../data/site';
 import { t } from '../../i18n/ui';
@@ -46,8 +49,7 @@ const [featured, ...compact] = projects;
       <SectionHeader label={ui.sections.work} headingId="h-work" />
 
       <div class="work-grid">
-        <ProjectCard
-          variant="featured"
+        <FeaturedProjectCard
           order={featured.data.order}
           kicker={featured.data.kicker[locale]}
           title={featured.data.title[locale]}
@@ -64,21 +66,20 @@ const [featured, ...compact] = projects;
               />
             )
           }
-          <TagList slot="tags" tags={featured.data.tags} variant="muted" />
-        </ProjectCard>
+          <MutedTagList slot="tags" tags={featured.data.tags} />
+        </FeaturedProjectCard>
 
         <div class="work-column">
           {
             compact.map((p) => (
-              <ProjectCard
-                variant="compact"
+              <CompactProjectCard
                 order={p.data.order}
                 kicker={p.data.kicker[locale]}
                 title={p.data.title[locale]}
                 body={p.data.body[locale]}
               >
-                <TagList slot="tags" tags={p.data.tags} variant="muted" />
-              </ProjectCard>
+                <MutedTagList slot="tags" tags={p.data.tags} />
+              </CompactProjectCard>
             ))
           }
         </div>
@@ -112,11 +113,11 @@ const [featured, ...compact] = projects;
       <div class="achievements-grid">
         {
           achievements.map((a) => (
-            <article class="card">
-              <p class="card-kicker">// {a.data.kicker[locale]}</p>
-              <h3 class="card-title achievement-title">{a.data.title}</h3>
-              <p class="card-body">{a.data.body[locale]}</p>
-            </article>
+            <AchievementCard
+              kicker={a.data.kicker[locale]}
+              title={a.data.title}
+              body={a.data.body[locale]}
+            />
           ))
         }
       </div>
@@ -128,9 +129,9 @@ const [featured, ...compact] = projects;
       <p class="contact-lead">{ui.contact.lead}</p>
 
       <div class="contact-actions">
-        <Button variant="primary" href={`mailto:${SITE.email}`}>{SITE.email}</Button>
-        <Button variant="ghost" href={SITE.linkedin}>linkedin</Button>
-        <Button variant="ghost" href={SITE.github}>github</Button>
+        <PrimaryButton href={`mailto:${SITE.email}`}>{SITE.email}</PrimaryButton>
+        <GhostButton href={SITE.linkedin}>linkedin</GhostButton>
+        <GhostButton href={SITE.github}>github</GhostButton>
       </div>
 
       <p class="contact-meta">
@@ -170,10 +171,6 @@ const [featured, ...compact] = projects;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-5);
-  }
-
-  .achievement-title {
-    font-size: var(--text-md);
   }
 
   .contact {

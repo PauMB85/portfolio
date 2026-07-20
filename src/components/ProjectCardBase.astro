@@ -1,0 +1,61 @@
+---
+/**
+ * Interno. Consúmelo como <FeaturedProjectCard> o <CompactProjectCard>.
+ *
+ * Comparte el armazón (kicker numerado, titular, cuerpo y los dos slots) para
+ * que las variantes no dupliquen marcado y no puedan divergir.
+ */
+interface Props {
+  /** Número de orden; se formatea a "01", "02"... */
+  order: number;
+  /** Kicker sin el "// NN · ": lo compone este componente. */
+  kicker: string;
+  title: string;
+  body: string;
+  /** Clase de variante, aplicada por el componente público. */
+  class: string;
+}
+
+const { order, kicker, title, body, class: variantClass } = Astro.props;
+const num = String(order).padStart(2, '0');
+---
+
+{
+  /* Métricas y tags entran por slots con nombre. Una tarjeta sin métricas
+     simplemente no rellena el slot: es composición, no una prop `hasMetrics`. */
+}
+<article class:list={['card', 'project', variantClass]}>
+  <p class="card-kicker">// {num} · {kicker}</p>
+  <h3 class="card-title">{title}</h3>
+  <p class="card-body">{body}</p>
+  <slot name="metrics" />
+  <slot name="tags" />
+</article>
+
+<style>
+  .project {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .card-kicker,
+  .card-title,
+  .card-body {
+    margin: 0;
+  }
+
+  .card-body {
+    text-wrap: pretty;
+  }
+
+  /* Estilos propios de cada variante. Viven aquí porque aplican a elementos
+     de este componente y el scope de Astro no cruza fronteras. */
+  .featured .card-title {
+    font-size: var(--text-xl);
+  }
+
+  .compact {
+    flex: 1;
+  }
+</style>

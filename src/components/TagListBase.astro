@@ -1,0 +1,28 @@
+---
+/**
+ * Interno. Consúmelo como <TagList> o <MutedTagList>.
+ */
+interface Props {
+  tags: readonly string[];
+  /** Clase de variante de components.css. */
+  tagClass: string;
+}
+
+const { tags, tagClass } = Astro.props;
+---
+
+<ul class="tags">
+  {tags.map((tag) => <li class:list={['tag', tagClass]}>{tag}</li>)}
+</ul>
+
+<style>
+  /* Lista real en el marcado (es una enumeración), sin viñetas en pantalla. */
+  .tags {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+</style>
