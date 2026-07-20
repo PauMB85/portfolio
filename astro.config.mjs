@@ -4,9 +4,13 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  // Repo `paumb85.github.io` => publica en la raíz. Sin `base`, las rutas son limpias
-  // y añadir un dominio propio más adelante no obliga a tocar ningún enlace.
+  // El repo se llama `portfolio`, así que GitHub Pages publica en un subdirectorio:
+  // https://paumb85.github.io/portfolio/
+  // Consecuencia: NINGÚN enlace ni ruta de asset puede escribirse a pelo con "/".
+  // Usa siempre los helpers de src/i18n/utils.ts (o import.meta.env.BASE_URL),
+  // que ya incluyen el base. Es la causa nº1 de "en local bien, desplegado roto".
   site: 'https://paumb85.github.io',
+  base: '/portfolio',
   output: 'static',
   trailingSlash: 'always',
 
