@@ -10,11 +10,11 @@
   },
   "company": "Freelance",
   "impact": {
-    "en": "From analysis to production: I design the architecture and ship it myself.",
-    "es": "Del análisis a producción: diseño la arquitectura y la despliego yo mismo."
+    "en": "Distributed, event-driven architectures — from the design decision to production.",
+    "es": "Arquitecturas distribuidas y event-driven, de la decisión de diseño a producción."
   },
   "detail": {
-    "en": "Event-driven backends and distributed systems. Analysis and design decisions for new features, working directly with the client with no layers in between.",
-    "es": "Backends event-driven y sistemas distribuidos. Análisis y decisiones de diseño para nuevas funcionalidades, trabajando directamente con el cliente y sin capas intermedias."
+    "en": "Event-driven backends and distributed systems. Analysis and design decisions for new features.",
+    "es": "Backends event-driven y sistemas distribuidos. Análisis y decisiones de diseño para nuevas funcionalidades."
   }
 }

@@ -10,11 +10,11 @@
   },
   "company": "Devo",
   "impact": {
-    "en": "Built the product's reactive dashboard platform from scratch.",
-    "es": "Construí desde cero la plataforma de dashboards reactivos del producto."
+    "en": "Activeboards, the product's new reactive dashboard platform, built with the product team.",
+    "es": "Activeboards, la nueva plataforma de dashboards reactivos del producto, con el equipo."
   },
   "detail": {
-    "en": "Activeboards: real-time data monitoring with React.js and RxJS, on an in-house product serving large accounts in retail and private banking.",
-    "es": "Activeboards: monitorización de datos en tiempo real con React.js y RxJS, en un producto propio con clientes de gran cuenta en retail y banca privada."
+    "en": "Real-time data monitoring with React.js and RxJS, on an in-house product serving large accounts in retail and private banking.",
+    "es": "Monitorización de datos en tiempo real con React.js y RxJS, en un producto propio con clientes de gran cuenta en retail y banca privada."
   }
 }
