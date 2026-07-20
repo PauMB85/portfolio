@@ -29,6 +29,13 @@ const links = [
 </nav>
 
 <style>
+  /* Altura fijada desde --nav-h (BaseLayout) para que el calc() del hero
+     a pantalla completa sea exacto. */
+  .nav {
+    min-height: var(--nav-h);
+    box-sizing: border-box;
+  }
+
   .nav-brand {
     margin: 0;
   }

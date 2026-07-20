@@ -99,11 +99,32 @@ const jsonLd = {
 </html>
 
 <style>
+  /* Ahora que el hero ocupa la pantalla, los enlaces del nav implican un
+     desplazamiento largo: suavizarlo ayuda a no perder la referencia.
+     Se desactiva si el usuario ha pedido menos movimiento. */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
   body {
     margin: 0;
     background: var(--surface-page);
     color: var(--text-body);
     min-height: 100vh;
+
+    /* Altura declarada de la barra de navegación. El hero la resta para ocupar
+       exactamente el resto de la pantalla; si fuese una estimación, el hero
+       desbordaría o dejaría un hueco. Nav.astro la aplica como min-height. */
+    --nav-h: 56px;
+  }
+
+  /* Por debajo de 600px el nav apila marca y enlaces, así que crece. */
+  @media (max-width: 600px) {
+    body {
+      --nav-h: 96px;
+    }
   }
 
   /* Enlace de salto: invisible hasta que recibe foco de teclado. */

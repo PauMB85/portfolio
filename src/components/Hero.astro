@@ -30,11 +30,18 @@ const ui = t(locale);
 
 <style>
   .hero {
-    padding: 110px var(--space-8) 90px;
+    /* Ocupa la pantalla menos la barra de navegación, y centra el contenido
+       verticalmente. dvh y no vh: en móvil, vh ignora la barra del navegador
+       y el hero quedaría cortado. */
+    min-height: calc(100vh - var(--nav-h));
+    min-height: calc(100dvh - var(--nav-h));
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    padding: var(--space-7) var(--space-8);
     gap: var(--space-5);
     max-width: 1000px;
+    box-sizing: border-box;
   }
 
   h1 {
@@ -74,11 +81,20 @@ const ui = t(locale);
 
   @media (max-width: 720px) {
     .hero {
-      padding: var(--space-8) var(--space-5) var(--space-7);
+      padding: var(--space-7) var(--space-5);
     }
 
     h1 {
       font-size: var(--text-2xl);
+    }
+  }
+
+  /* Pantallas bajas (portátiles pequeños, móvil apaisado): si el contenido no
+     cabe, deja de forzar la altura completa antes que recortarlo. */
+  @media (max-height: 600px) {
+    .hero {
+      min-height: 0;
+      padding-block: var(--space-8);
     }
   }
 </style>
